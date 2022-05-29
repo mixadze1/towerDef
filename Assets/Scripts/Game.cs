@@ -19,7 +19,7 @@ public class Game : MonoBehaviour
 
     [SerializeField, Range(10, 120)] private int _startingPlayerHealth = 100;
 
-    [SerializeField, Range(5f, 15f)] private float _prepareTime = 10f;
+    [SerializeField, Range(1f, 15f)] private float _prepareTime = 10f;
 
     private GameScenario.State _activateScenario;
 
