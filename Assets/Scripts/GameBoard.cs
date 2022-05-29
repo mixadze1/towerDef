@@ -5,18 +5,22 @@ using UnityEngine;
 public class GameBoard : MonoBehaviour
 {
     [SerializeField] private Transform _ground;
-    [SerializeField] private GameTile _tilePrefab;
-    private Vector2Int _size;
 
+    [SerializeField] private GameTile _tilePrefab;
+    
     private GameTile[] _tiles;
 
-    private Queue<GameTile> _searchFrontier = new Queue<GameTile>();
     private GameTileContentFactory _contentFactory;
     
     private List<GameTile> _spawnPoint = new List<GameTile>();
-
     private List<GameTileContent> _contentToUpdate = new List<GameTileContent>();
+
+    private Queue<GameTile> _searchFrontier = new Queue<GameTile>();
+
+    private Vector2Int _size;
+
     public int SpawnPointCount => _spawnPoint.Count;
+
     public void Initialize(Vector2Int size, GameTileContentFactory contentFactory)
     {
         _size = size;
@@ -49,7 +53,7 @@ public class GameBoard : MonoBehaviour
                 }
             }
         }
-        Clear();
+        ClearList();
     }
 
     public void GameUpdate()
@@ -194,6 +198,7 @@ public class GameBoard : MonoBehaviour
             _spawnPoint.Add(tile);
         }
     }
+
     public GameTile GetTile(Ray ray)
     {
         RaycastHit hit;
@@ -213,7 +218,7 @@ public class GameBoard : MonoBehaviour
     {
         return _spawnPoint[index];
     }
-    public void Clear()
+    public void ClearList()
     {
         foreach (var tile in _tiles)
         {

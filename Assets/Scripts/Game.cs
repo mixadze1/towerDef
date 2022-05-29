@@ -6,6 +6,7 @@ public class Game : MonoBehaviour
 {
     [SerializeField] private Vector2Int _boardSize;
     [SerializeField] private GameBoard _board;
+    [SerializeField] private DecorateBoard _decorate;
 
     [SerializeField] private Camera _camera;
     [SerializeField] private GameTileContentFactory _contentFactory;
@@ -16,11 +17,9 @@ public class Game : MonoBehaviour
     [SerializeField] private GameScenario _scenarion;
 
 
-    [SerializeField, Range(10,120)] private int _startingPlayerHealth = 100;
+    [SerializeField, Range(10, 120)] private int _startingPlayerHealth = 100;
 
     [SerializeField, Range(5f, 15f)] private float _prepareTime = 10f;
-    private bool _scenarioInProcess;
-    private int _currentPlayerHealth;
 
     private GameScenario.State _activateScenario;
 
@@ -32,24 +31,33 @@ public class Game : MonoBehaviour
 
     private static Game _instance;
 
+    private Coroutine _prepareRoutine;
+
+    private bool _scenarioInProcess;
     private bool _isPaused;
+
+    private int _currentPlayerHealth;
+
     private void OnEnable()
     {
         _instance = this;
     }
+
     private void Start()
     {
+        _decorate.Initialize(_boardSize);
         _board.Initialize(_boardSize, _contentFactory);
         BeginNewGame();
     }
+
     private void Update()
     {
-        if(Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             _isPaused = !_isPaused;
             Time.timeScale = _isPaused ? 0f : 1f;
-        }    
-        if(Input.GetKey(KeyCode.R))
+        }
+        if (Input.GetKey(KeyCode.R))
         {
             BeginNewGame();
         }
@@ -82,8 +90,6 @@ public class Game : MonoBehaviour
                 BeginNewGame();
             }
         }
-       
-        //_activateScenario.Progress();
         _enemies.GameUpdate();
         Physics.SyncTransforms();
         _board.GameUpdate();
@@ -97,6 +103,7 @@ public class Game : MonoBehaviour
         enemy.SpawnOn(spawnPoint);
         _instance._enemies.Add(enemy);
     }
+
     private void HandleTouch()
     {
         GameTile tile = _board.GetTile(TouchRay);
@@ -104,17 +111,18 @@ public class Game : MonoBehaviour
         if (tile != null)
         {
             if (Input.GetKey(KeyCode.LeftShift))
-            { 
-                _board.ToggleTower(tile ,_currentTowerType);
+            {
+                _board.ToggleTower(tile, _currentTowerType);
             }
             else
             {
                 _board.ToggleWall(tile);
             }
-                
+
         }
 
     }
+
     private void HanglerAlternativeTouch()
     {
         GameTile tile = _board.GetTile(TouchRay);
@@ -132,6 +140,7 @@ public class Game : MonoBehaviour
         }
 
     }
+
     public static Shell SpawnShell()
     {
         Shell shell = _instance._warFactory.Shell;
@@ -154,16 +163,16 @@ public class Game : MonoBehaviour
         }
         _enemies.Clear();
         _nonEnemies.Clear();
-        _board.Clear();
+        _board.ClearList();
         _currentPlayerHealth = _startingPlayerHealth;
         _prepareRoutine = StartCoroutine(PrepareRoutine());
     }
 
     public static void EnemyReachedDestination()
     {
-        _instance._currentPlayerHealth-= 5;
+        _instance._currentPlayerHealth -= 5;
     }
-    private Coroutine _prepareRoutine;
+
     private IEnumerator PrepareRoutine()
     {
         yield return new WaitForSeconds(_prepareTime);

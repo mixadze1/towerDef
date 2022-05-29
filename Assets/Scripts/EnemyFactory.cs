@@ -21,7 +21,7 @@ using UnityEngine;
         public FloatRange Health = new FloatRange(0);
     }
 
-    [SerializeField] private EnemyConfig _small, _medium, _large;
+    [SerializeField] private EnemyConfig _small, _medium, _large, _ultraLarge;
 
    
 
@@ -43,6 +43,8 @@ using UnityEngine;
                 return _small;
             case EnemyType.Medium:
                return _medium;
+            case EnemyType.UltraLarge:
+                return _ultraLarge;
        }
         return _medium;
     }

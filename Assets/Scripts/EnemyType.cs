@@ -6,5 +6,6 @@ public enum EnemyType
 {
     Small,
     Medium,
-    Large
+    Large,
+    UltraLarge
 }
