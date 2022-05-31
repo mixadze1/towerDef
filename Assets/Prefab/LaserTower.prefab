@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5a54f2a86362745a2e96b6cc395cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 4
+  _type: 5
   _targetingRange: 3.06
   _turret: {fileID: 6677245694986608716}
   _laserBeam: {fileID: 3310126744153178213}

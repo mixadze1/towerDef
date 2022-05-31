@@ -15,6 +15,7 @@ public class Game : MonoBehaviour
     [SerializeField] private WarFactory _warFactory;
 
     [SerializeField] private GameScenario _scenarion;
+    [SerializeField] private TilesBuilder _tilesBuilder;
 
     [SerializeField, Range(10, 120)] private int _startingPlayerHealth = 100;
 
@@ -48,6 +49,7 @@ public class Game : MonoBehaviour
     {
         _decorate.Initialize(_boardSize);
         _board.Initialize(_boardSize, _contentFactory);
+        _tilesBuilder.Initialize(_contentFactory, _camera, _board, true);
         BeginNewGame();
     }
 
@@ -72,7 +74,7 @@ public class Game : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            HandleTouch();
+           // HandleTouch();
         }
         else if (Input.GetMouseButtonDown(1))
         {
@@ -105,7 +107,7 @@ public class Game : MonoBehaviour
         _instance._enemies.Add(enemy);
     }
 
-    private void HandleTouch()
+   /* private void HandleTouch()
     {
         GameTile tile = _board.GetTile(TouchRay);
 
@@ -122,7 +124,7 @@ public class Game : MonoBehaviour
 
         }
 
-    }
+    }*/
 
     private void HanglerAlternativeTouch()
     {

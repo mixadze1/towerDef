@@ -30,7 +30,7 @@ public class GameTileContentFactory : GameObjectFactory
         }
         return null;
     }
-    public Tower Get(TowerType type, float offset)
+    public Tower Get(TowerType type)
     {
         Tower prefab = _towerPrefabs[(int)type];
         return Get(prefab); 

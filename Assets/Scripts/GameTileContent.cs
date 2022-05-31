@@ -25,8 +25,8 @@ public class GameTileContent : MonoBehaviour
         Destination,
         Wall,
         SpawnPoint,
-        Tower
-    }
+        Tower, 
+}
 public enum TowerType
 {
     Laser,
