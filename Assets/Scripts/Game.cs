@@ -55,7 +55,7 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+      /*  if (Input.GetKey(KeyCode.Space))
         {
             _isPaused = !_isPaused;
             Time.timeScale = _isPaused ? 0f : 1f;
@@ -79,7 +79,7 @@ public class Game : MonoBehaviour
         else if (Input.GetMouseButtonDown(1))
         {
             HanglerAlternativeTouch();
-        }
+        }*/
         if (_scenarioInProcess)
         {
             if (_currentPlayerHealth <= 0)
@@ -126,7 +126,7 @@ public class Game : MonoBehaviour
 
     }*/
 
-    private void HanglerAlternativeTouch()
+  /*  private void HanglerAlternativeTouch()
     {
         GameTile tile = _board.GetTile(TouchRay);
 
@@ -134,15 +134,15 @@ public class Game : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                _board.ToggleDestination(tile);
+                //_board.ToggleDestination(tile);
             }
             else
             {
-                _board.ToggleSpawnPoint(tile);
+               // _board.ToggleSpawnPoint(tile);
             }
         }
 
-    }
+    }*/
 
     public static Shell SpawnShell()
     {

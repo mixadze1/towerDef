@@ -151,7 +151,6 @@ public class GameBoard : MonoBehaviour
 
         if (content.Type == GameTileContentType.SpawnPoint)
             _spawnPoint.Add(tile);
-
         return true;
     }
 
@@ -187,7 +186,7 @@ public class GameBoard : MonoBehaviour
          }
      }*/
 
-    public void ToggleTower(GameTile tile, TowerType towerType)
+   /* public void ToggleTower(GameTile tile, TowerType towerType)
     {
         if (tile.Content.Type == GameTileContentType.Tower)
         {
@@ -214,7 +213,7 @@ public class GameBoard : MonoBehaviour
             tile.Content = _contentFactory.Get(towerType);
             _contentToUpdate.Add(tile.Content);
         }
-    }
+    }*/
 
     public void ToggleSpawnPoint(GameTile tile)
     {
@@ -238,8 +237,8 @@ public class GameBoard : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray,out hit, float.MaxValue, 1))
         {
-            int x = (int)(hit.point.x + _size.x * 0.5f);
-            int y = (int)(hit.point.z + _size.y * 0.5f);
+            int x = (int)(hit.point.x + _size.x * 0.51f);
+            int y = (int)(hit.point.z + _size.y * 0.51f);
             if (x >= 0 && x < _size.x && y >= 0 && y < _size.y)
             {
                 return _tiles[x + y * _size.x];

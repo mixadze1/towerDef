@@ -74,7 +74,9 @@ public class TilesBuilder : MonoBehaviour
         if (IsPointerUp())
         {
             var tile = _gameBoard.GetTile(TouchRay);
-            if (tile != null)
+            if (tile == null ||tile.Content.Type == GameTileContentType.Destination || tile.Content.Type == GameTileContentType.SpawnPoint)
+                return;
+                if (tile != null)
             {
                 _gameBoard.DestroyTile(tile);
             }
@@ -83,11 +85,10 @@ public class TilesBuilder : MonoBehaviour
 
     private bool IsPointerUp()
     {
-#if UNITY_EDITOR
-        return Input.GetMouseButtonUp(0);
-#else
-        return Input.touches.Length == 0;
-#endif
+        if (Input.GetMouseButtonUp(0))
+            return true;
+        else
+            return false;
     }
 
     public void Enable()
