@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a101d4a9e61164c8343a51e0fa4a0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 6
+  _type: 2
   _targetingRange: 8.18
   _shootsPerSeconds: 0.5
   _mortar: {fileID: 1750703807553873675}

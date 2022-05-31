@@ -55,7 +55,7 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
-      /*  if (Input.GetKey(KeyCode.Space))
+        /*if (Input.GetKey(KeyCode.Space))
         {
             _isPaused = !_isPaused;
             Time.timeScale = _isPaused ? 0f : 1f;
@@ -74,7 +74,7 @@ public class Game : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-           // HandleTouch();
+            // HandleTouch();
         }
         else if (Input.GetMouseButtonDown(1))
         {

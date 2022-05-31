@@ -1690,6 +1690,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1168381411}
     m_Modifications:
+    - target: {fileID: 1267645802072640655, guid: 7b23a061ea97d9447b696e58fb4f3568, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1267645802284732219, guid: 7b23a061ea97d9447b696e58fb4f3568, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1777,6 +1781,22 @@ PrefabInstance:
     - target: {fileID: 1267645802603892402, guid: 7b23a061ea97d9447b696e58fb4f3568, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267645802714476889, guid: 7b23a061ea97d9447b696e58fb4f3568, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b878b1f314cf50249bfee3495fbd0612, type: 3}
+    - target: {fileID: 1267645802714476889, guid: 7b23a061ea97d9447b696e58fb4f3568, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267645802714476889, guid: 7b23a061ea97d9447b696e58fb4f3568, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267645802714476889, guid: 7b23a061ea97d9447b696e58fb4f3568, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1267645802714476890, guid: 7b23a061ea97d9447b696e58fb4f3568, type: 3}
       propertyPath: m_Pivot.x
@@ -1878,6 +1898,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TilesBuilder
       objectReference: {fileID: 0}
+    - target: {fileID: 1267645802714897244, guid: 7b23a061ea97d9447b696e58fb4f3568, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1267645802905265949, guid: 7b23a061ea97d9447b696e58fb4f3568, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1894,6 +1918,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1267645803078159021, guid: 7b23a061ea97d9447b696e58fb4f3568, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd0f56d3f3240e94f8cdea3d92e7a4b6, type: 3}
+    - target: {fileID: 1267645803640200556, guid: 7b23a061ea97d9447b696e58fb4f3568, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 68968840c0fcded439069a3314f98c97, type: 3}
     - target: {fileID: 1267645803730924934, guid: 7b23a061ea97d9447b696e58fb4f3568, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
