@@ -16,7 +16,6 @@ public class Game : MonoBehaviour
 
     [SerializeField] private GameScenario _scenarion;
 
-
     [SerializeField, Range(10, 120)] private int _startingPlayerHealth = 100;
 
     [SerializeField, Range(1f, 15f)] private float _prepareTime = 10f;
@@ -29,7 +28,7 @@ public class Game : MonoBehaviour
 
     private TowerType _currentTowerType;
 
-    private static Game _instance;
+    public static Game _instance;
 
     private Coroutine _prepareRoutine;
 
@@ -37,6 +36,8 @@ public class Game : MonoBehaviour
     private bool _isPaused;
 
     private int _currentPlayerHealth;
+
+    private int _correctLevel = 0;
 
     private void OnEnable()
     {
@@ -176,7 +177,9 @@ public class Game : MonoBehaviour
     private IEnumerator PrepareRoutine()
     {
         yield return new WaitForSeconds(_prepareTime);
-        _activateScenario = _scenarion.Begin();
-        _scenarioInProcess = true;
+
+                _activateScenario = _scenarion.Begin();
+                _correctLevel++;
+                _scenarioInProcess = true;
     }
 }

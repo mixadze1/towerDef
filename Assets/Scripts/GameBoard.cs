@@ -24,7 +24,8 @@ public class GameBoard : MonoBehaviour
     public void Initialize(Vector2Int size, GameTileContentFactory contentFactory)
     {
         _size = size;
-        _ground.localScale = new Vector3(size.x, size.y, 1f);
+        _ground.localPosition = new Vector3(0, -1, 0);
+        _ground.localScale = new Vector3(size.x * 1.5f, size.y * 1.5f, 1f);
 
         Vector2 offset = new Vector2((size.x - 1) * 0.5f, (size.y - 1) * 0.5f);
 
@@ -155,6 +156,7 @@ public class GameBoard : MonoBehaviour
 
     public void ToggleTower(GameTile tile ,TowerType towerType)
     {
+        float offset = 0;
         if (tile.Content.Type == GameTileContentType.Tower)
         {
             _contentToUpdate.Remove(tile.Content);
@@ -163,7 +165,7 @@ public class GameBoard : MonoBehaviour
         }
         else if (tile.Content.Type == GameTileContentType.Empty)
         {
-            tile.Content = _contentFactory.Get(towerType);
+            tile.Content = _contentFactory.Get(towerType, offset);
            
             if (FindPaths())
             {
@@ -177,7 +179,7 @@ public class GameBoard : MonoBehaviour
         }
         else if (tile.Content.Type == GameTileContentType.Wall)
         {
-            tile.Content = _contentFactory.Get(towerType);
+            tile.Content = _contentFactory.Get(towerType, offset + 0.75f);
             _contentToUpdate.Add(tile.Content);
         }
     }
@@ -227,6 +229,6 @@ public class GameBoard : MonoBehaviour
         _spawnPoint.Clear();
         _contentToUpdate.Clear();
         ToggleDestination(_tiles[_tiles.Length*4/5]);
-        ToggleSpawnPoint(_tiles[0]);
+        ToggleSpawnPoint(_tiles[_size.x*5 + 1]);
     }
 }

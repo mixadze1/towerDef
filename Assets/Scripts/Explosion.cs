@@ -45,7 +45,7 @@ public class Explosion : WarEntity
             _propertyBlock = new MaterialPropertyBlock();
         }
         float t = _age / _duration;
-        Color c = Color.yellow;
+        Color c = Color.red;
         c.a = _colorCurve.Evaluate(t);
         _propertyBlock.SetColor(_colorPropId, c);
         _meshRenderer.SetPropertyBlock(_propertyBlock);

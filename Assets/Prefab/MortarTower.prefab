@@ -267,8 +267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 4
-  _targetingRange: 2.56
-  _shootsPerSeconds: 1
+  _targetingRange: 8.18
+  _shootsPerSeconds: 0.5
   _mortar: {fileID: 1750703807553873675}
-  _shellBlastRadius: 1
-  _damage: 0
+  _shellBlastRadius: 1.517
+  _damage: 80.6
