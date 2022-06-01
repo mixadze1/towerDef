@@ -23,6 +23,7 @@ ScriptsOnlyBuild:
     - Shell
     - TargetPoint
     - TilesBuilder
+    - VictoryLose
     - WarFactory
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -130,37 +131,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2950}
     - Class: 114
-      Script: {instanceID: 2988}
+      Script: {instanceID: 2968}
     - Class: 114
-      Script: {instanceID: 3172}
+      Script: {instanceID: 2990}
     - Class: 114
-      Script: {instanceID: 3198}
+      Script: {instanceID: 3174}
     - Class: 114
-      Script: {instanceID: 3394}
+      Script: {instanceID: 3200}
     - Class: 114
-      Script: {instanceID: 3412}
+      Script: {instanceID: 3396}
     - Class: 114
-      Script: {instanceID: 3570}
+      Script: {instanceID: 3414}
     - Class: 114
-      Script: {instanceID: 3714}
+      Script: {instanceID: 3572}
     - Class: 114
-      Script: {instanceID: 3754}
+      Script: {instanceID: 3716}
     - Class: 114
-      Script: {instanceID: 4236}
+      Script: {instanceID: 3756}
     - Class: 114
-      Script: {instanceID: 4270}
+      Script: {instanceID: 4238}
     - Class: 114
-      Script: {instanceID: 4304}
+      Script: {instanceID: 4272}
     - Class: 114
-      Script: {instanceID: 4392}
+      Script: {instanceID: 4306}
     - Class: 114
-      Script: {instanceID: 4444}
+      Script: {instanceID: 4394}
     - Class: 114
-      Script: {instanceID: 4448}
+      Script: {instanceID: 4446}
     - Class: 114
-      Script: {instanceID: 4460}
+      Script: {instanceID: 4450}
     - Class: 114
-      Script: {instanceID: 4648}
+      Script: {instanceID: 4462}
+    - Class: 114
+      Script: {instanceID: 4650}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -249,31 +252,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2950}
     - Class: 114
-      Script: {instanceID: 2988}
+      Script: {instanceID: 2990}
     - Class: 114
-      Script: {instanceID: 3198}
+      Script: {instanceID: 3200}
     - Class: 114
-      Script: {instanceID: 3502}
+      Script: {instanceID: 3504}
     - Class: 114
-      Script: {instanceID: 3720}
+      Script: {instanceID: 3722}
     - Class: 114
-      Script: {instanceID: 3754}
+      Script: {instanceID: 3756}
     - Class: 114
-      Script: {instanceID: 3838}
+      Script: {instanceID: 3840}
     - Class: 114
-      Script: {instanceID: 3854}
+      Script: {instanceID: 3856}
     - Class: 114
-      Script: {instanceID: 3950}
+      Script: {instanceID: 3952}
     - Class: 114
-      Script: {instanceID: 4232}
+      Script: {instanceID: 4234}
     - Class: 114
-      Script: {instanceID: 4304}
+      Script: {instanceID: 4306}
     - Class: 114
-      Script: {instanceID: 4392}
+      Script: {instanceID: 4394}
     - Class: 114
-      Script: {instanceID: 4460}
+      Script: {instanceID: 4462}
     - Class: 114
-      Script: {instanceID: 4594}
+      Script: {instanceID: 4596}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -649,6 +652,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: Benchmark04
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: VictoryLose
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1035,7 +1044,7 @@ ScriptsOnlyBuild:
     className: VertexZoom
   - hash:
       serializedVersion: 2
-      Hash: 2de616519fab7ae1e42e1e46b00d80b2
+      Hash: 077553ae71dcd0e98a00c2d6f33d070c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyFactory
@@ -1047,7 +1056,7 @@ ScriptsOnlyBuild:
     className: ObjectSpin
   - hash:
       serializedVersion: 2
-      Hash: 3f13249f284bf85964995e91f778cb74
+      Hash: 05234fe8554d78e89d33357350bca6a9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Game
@@ -1121,4 +1130,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/Game.unity
-  playerPath: D:/game/tower5.apk
+  playerPath: D:/game/tower.apk

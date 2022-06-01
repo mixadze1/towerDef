@@ -87,6 +87,7 @@
     <Compile Include="Assets\AurynSky\Forest Pack\Scripts\Rotator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\Scripts\VictoryLose.cs" />
     <Compile Include="Assets\Scripts\TargetPoint.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\DirectionExtension.cs" />
@@ -141,7 +142,7 @@
     <Compile Include="Assets\Scripts\WarFactory.cs" />
     <Compile Include="Assets\Scripts\LoginWindow.cs" />
     <Compile Include="Assets\Scripts\EnemyType.cs" />
-    <Compile Include="Assets\Scripts\VictoryLose.cs" />
+    <Compile Include="Assets\Scripts\TargetPointTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

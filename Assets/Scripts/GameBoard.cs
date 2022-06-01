@@ -259,7 +259,7 @@ public class GameBoard : MonoBehaviour
         }
         _spawnPoint.Clear();
         _contentToUpdate.Clear();
-        ToggleDestination(_tiles[_tiles.Length*4/5]);
-        ToggleSpawnPoint(_tiles[_size.x*5 + 1]);
+        ToggleDestination(_tiles[Random.Range(0, _size.x * _size.y)]);
+        ToggleSpawnPoint(_tiles[Random.Range(0,_size.x*_size.y)]);
     }
 }

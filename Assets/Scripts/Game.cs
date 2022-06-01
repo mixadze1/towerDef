@@ -21,10 +21,13 @@ public class Game : MonoBehaviour
     [SerializeField, Range(10, 120)] private int _startingPlayerHealth = 100;
 
     [SerializeField, Range(1f, 15f)] private float _prepareTime = 10f;
+
     [SerializeField] private Transform _windowWarning;
     [SerializeField] private Transform _windowVictory;
     [SerializeField] private Transform _windowLose; 
+
     [SerializeField] private TextMeshProUGUI _healthText;
+
     private GameScenario.State _activateScenario;
 
     private GameBehaviorCollection _enemies = new GameBehaviorCollection();
@@ -38,7 +41,6 @@ public class Game : MonoBehaviour
     private Coroutine _prepareRoutine;
 
     private bool _scenarioInProcess;
-    private bool _isPaused;
 
     private int _currentPlayerHealth;
 
@@ -60,31 +62,6 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
-        /*if (Input.GetKey(KeyCode.Space))
-        {
-            _isPaused = !_isPaused;
-            Time.timeScale = _isPaused ? 0f : 1f;
-        }
-        if (Input.GetKey(KeyCode.R))
-        {
-            BeginNewGame();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            _currentTowerType = TowerType.Laser;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            _currentTowerType = TowerType.Mortar;
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            // HandleTouch();
-        }
-        else if (Input.GetMouseButtonDown(1))
-        {
-            HanglerAlternativeTouch();
-        }*/
         if (_scenarioInProcess)
         {
             if (_currentPlayerHealth <= 0)
@@ -115,43 +92,6 @@ public class Game : MonoBehaviour
         BeginNewGame();
     }
 
-   /* private void HandleTouch()
-    {
-        GameTile tile = _board.GetTile(TouchRay);
-
-        if (tile != null)
-        {
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                _board.ToggleTower(tile, _currentTowerType);
-            }
-            else
-            {
-                _board.ToggleWall(tile);
-            }
-
-        }
-
-    }*/
-
-  /*  private void HanglerAlternativeTouch()
-    {
-        GameTile tile = _board.GetTile(TouchRay);
-
-        if (tile != null)
-        {
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                //_board.ToggleDestination(tile);
-            }
-            else
-            {
-               // _board.ToggleSpawnPoint(tile);
-            }
-        }
-
-    }*/
-
     public static Shell SpawnShell()
     {
         Shell shell = _instance._warFactory.Shell;
@@ -176,6 +116,7 @@ public class Game : MonoBehaviour
         _nonEnemies.Clear();
         _board.ClearList();
         _currentPlayerHealth = _startingPlayerHealth;
+        _windowWarning.gameObject.SetActive(true);
         _prepareRoutine = StartCoroutine(PrepareRoutine());
     }
 
@@ -197,7 +138,6 @@ public class Game : MonoBehaviour
 
     private IEnumerator PrepareRoutine()
     {
-        _windowWarning.gameObject.SetActive(true);
         yield return new WaitForSeconds(_prepareTime);
         
         _activateScenario = _scenarion.Begin();
