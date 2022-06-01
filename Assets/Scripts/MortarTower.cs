@@ -65,7 +65,7 @@ public class MortarTower : Tower
         float cosTheta = Mathf.Cos(Mathf.Atan(tanTheta));
         float sinTheta = cosTheta * tanTheta;
 
-        _mortar.localRotation = Quaternion.LookRotation(dir);
+        _mortar.localRotation = Quaternion.LookRotation(dir) * Quaternion.Euler(1f,1f,30f);
 
         Game.SpawnShell().Initialize(launchPoint, targetPoint,
             new Vector3(s * cosTheta * dir.x, s * sinTheta, s * cosTheta * dir.z), _shellBlastRadius, _damage);

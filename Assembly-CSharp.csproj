@@ -141,6 +141,7 @@
     <Compile Include="Assets\Scripts\WarFactory.cs" />
     <Compile Include="Assets\Scripts\LoginWindow.cs" />
     <Compile Include="Assets\Scripts\EnemyType.cs" />
+    <Compile Include="Assets\Scripts\VictoryLose.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

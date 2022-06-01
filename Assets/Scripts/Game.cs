@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Game : MonoBehaviour
@@ -20,7 +21,10 @@ public class Game : MonoBehaviour
     [SerializeField, Range(10, 120)] private int _startingPlayerHealth = 100;
 
     [SerializeField, Range(1f, 15f)] private float _prepareTime = 10f;
-
+    [SerializeField] private Transform _windowWarning;
+    [SerializeField] private Transform _windowVictory;
+    [SerializeField] private Transform _windowLose; 
+    [SerializeField] private TextMeshProUGUI _healthText;
     private GameScenario.State _activateScenario;
 
     private GameBehaviorCollection _enemies = new GameBehaviorCollection();
@@ -50,6 +54,7 @@ public class Game : MonoBehaviour
         _decorate.Initialize(_boardSize);
         _board.Initialize(_boardSize, _contentFactory);
         _tilesBuilder.Initialize(_contentFactory, _camera, _board, true);
+        _healthText.text = _startingPlayerHealth.ToString();
         BeginNewGame();
     }
 
@@ -84,13 +89,11 @@ public class Game : MonoBehaviour
         {
             if (_currentPlayerHealth <= 0)
             {
-                Debug.Log("defeat");
-                BeginNewGame();
+                _windowLose.gameObject.SetActive(true);
             }
             if (!_activateScenario.Progress() && _enemies.IsEmpty)
             {
-                Debug.Log("yaPopedil");
-                BeginNewGame();
+                _windowVictory.gameObject.SetActive(true);
             }
         }
         _enemies.GameUpdate();
@@ -105,6 +108,11 @@ public class Game : MonoBehaviour
         Enemy enemy = factory.Get(type);
         enemy.SpawnOn(spawnPoint);
         _instance._enemies.Add(enemy);
+    }
+
+    public void StartNewGame()
+    {
+        BeginNewGame();
     }
 
    /* private void HandleTouch()
@@ -171,17 +179,29 @@ public class Game : MonoBehaviour
         _prepareRoutine = StartCoroutine(PrepareRoutine());
     }
 
-    public static void EnemyReachedDestination()
+    public static void EnemyReachedDestination(int damage)
     {
-        _instance._currentPlayerHealth -= 5;
+        if (_instance._currentPlayerHealth > 0)
+        {
+            _instance._currentPlayerHealth -= damage;
+            _instance._healthText.text = _instance._currentPlayerHealth.ToString();
+        }
+
+        if (_instance._currentPlayerHealth <= 0)
+        {
+            _instance._currentPlayerHealth = 0;
+            _instance._healthText.text = _instance._currentPlayerHealth.ToString();
+        }
+         
     }
 
     private IEnumerator PrepareRoutine()
     {
+        _windowWarning.gameObject.SetActive(true);
         yield return new WaitForSeconds(_prepareTime);
-
-                _activateScenario = _scenarion.Begin();
-                _correctLevel++;
-                _scenarioInProcess = true;
+        
+        _activateScenario = _scenarion.Begin();
+        _correctLevel++;
+        _scenarioInProcess = true;
     }
 }

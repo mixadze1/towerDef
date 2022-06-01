@@ -34,7 +34,7 @@ public class Explosion : WarEntity
     }
     public override bool GameUpdate()
     {
-       _age += Time.deltaTime;
+        _age += Time.deltaTime;
         if (_age > _duration)
         {
             OriginFactory.Reclaim(this);

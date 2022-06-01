@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: EnemyWave 1
   m_EditorClassIdentifier: 
   _spawnSequences:
-  - _factory: {fileID: 0}
+  - _factory: {fileID: 11400000, guid: ff26e863c55357847b32699debcb6f60, type: 2}
     _type: 1
     _amount: 52
     _cooldown: 0.52
-  - _factory: {fileID: 0}
+  - _factory: {fileID: 11400000, guid: ff26e863c55357847b32699debcb6f60, type: 2}
     _type: 2
     _amount: 4
     _cooldown: 1.7
-  - _factory: {fileID: 0}
+  - _factory: {fileID: 11400000, guid: ff26e863c55357847b32699debcb6f60, type: 2}
     _type: 0
     _amount: 15
     _cooldown: 0.9
-  - _factory: {fileID: 0}
+  - _factory: {fileID: 11400000, guid: ff26e863c55357847b32699debcb6f60, type: 2}
     _type: 1
     _amount: 10
     _cooldown: 1.13

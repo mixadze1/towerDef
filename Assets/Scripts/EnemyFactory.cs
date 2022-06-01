@@ -19,6 +19,8 @@ using UnityEngine;
         public FloatRange Speed = new FloatRange(0);
         [FloatRangeSlider(10f, 1000f)]
         public FloatRange Health = new FloatRange(0);
+        [FloatRangeSlider(1f, 15f)]
+        public FloatRange Damage = new FloatRange(0);
     }
 
     [SerializeField] private EnemyConfig _small, _medium, _large, _ultraLarge;
@@ -30,7 +32,7 @@ using UnityEngine;
         var config = GetConfig(type);
             Enemy instance = CreateGameObjectInstance(config.Prefab);
             instance.OriginFactory = this;
-            instance.Initialize(config.Scale.RandomValueInRange, config.PathOffset.RandomValueInRange, config.Speed.RandomValueInRange, config.Health.RandomValueInRange);
+            instance.Initialize(config.Scale.RandomValueInRange, config.PathOffset.RandomValueInRange, config.Speed.RandomValueInRange, config.Health.RandomValueInRange, config.Damage.RandomValueInRange);
             return instance; 
         }
     private EnemyConfig GetConfig(EnemyType type)

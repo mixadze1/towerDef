@@ -15,16 +15,19 @@ public class Enemy : GameBehavior
     private float _directionAngleFrom, _directionAngleTo;
     private float _pathOffset;
     private float _speed;
+
    
     public float Scale { get; private set; }
     public float Health { get; private set; }
-   public void Initialize(float scale, float pathOffset, float speed, float health)
+    public float Damage { get; private set; }
+   public void Initialize(float scale, float pathOffset, float speed, float health, float damage)
     {
         _model.localScale =  new Vector3(scale, scale, scale);
         _pathOffset = pathOffset;
         _speed = speed;
         Scale = scale;
         Health = health;
+        Damage = damage;
     }
     public void SpawnOn(GameTile tile)
     {
@@ -66,10 +69,10 @@ public class Enemy : GameBehavior
         _progress += Time.deltaTime * _progressFactory;
         while (_progress >= 1)
         {
- 
+
             if (_tileTo == null)
             {
-                Game.EnemyReachedDestination();
+                Game.EnemyReachedDestination((int)Damage);              
                 Recycle();
                 return false;
             }
