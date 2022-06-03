@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4A0023F8-69DC-7B30-4982-149B55B04F3F}</ProjectGuid>
+    <ProjectGuid>{3BA7F38E-6C47-3EF7-57CA-F1D6AC297E5F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -118,6 +118,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\UserInfoContatiner.cs" />
     <Compile Include="Assets\Scripts\TilesBuilder.cs" />
+    <Compile Include="Assets\Scripts\ContentPrice.cs" />
     <Compile Include="Assets\Scripts\EnemyView.cs" />
     <Compile Include="Assets\Scripts\ConfigOperation.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
@@ -139,7 +140,9 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\Scripts\GameScenario.cs" />
+    <Compile Include="Assets\Scripts\wallCreater\WallCreater.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
+    <Compile Include="Assets\Scripts\Coin\GUIManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Scripts\EnemyFactory.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
@@ -153,9 +156,7 @@
     <Compile Include="Assets\Scripts\WarFactory.cs" />
     <Compile Include="Assets\Scripts\LoginWindow.cs" />
     <Compile Include="Assets\Scripts\EnemyType.cs" />
-    <Compile Include="Assets\Scripts\wallCreater\WallCreater.cs" />
-    <Compile Include="Assets\Scripts\Coin\GUIManager.cs" />
-    <Compile Include="Assets\Scripts\ContentPrice.cs" />
+    <Compile Include="Assets\Scripts\Coin\CoinForAds.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

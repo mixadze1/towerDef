@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Enemy : GameBehavior
 {
@@ -16,7 +16,6 @@ public class Enemy : GameBehavior
     private float _pathOffset;
     private float _speed;
 
-   
     public float Scale { get; private set; }
     public float Health { get; private set; }
     public float Damage { get; private set; }
@@ -72,6 +71,7 @@ public class Enemy : GameBehavior
             Recycle();
             return false;
         }
+      
         _progress += Time.deltaTime * _progressFactory;
         while (_progress >= 1)
         {

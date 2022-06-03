@@ -163,7 +163,7 @@ public class GameBoard : MonoBehaviour
 
         if (tile.Content.Type == GameTileContentType.SpawnPoint)
             _spawnPoint.Remove(tile);
-
+        GUIManager.instance.Coin += 25;
         tile.Content = _contentFactory.Get(GameTileContentType.Empty);
         FindPaths();
     }
