@@ -17,12 +17,8 @@ public class MainMenuController : MonoBehaviour {
     public GameObject ControlsPanel;
     public GameObject GfxPanel;
     public GameObject LoadGamePanel;
+    public GameObject NameGame;
 
-    public GameObject Level;
-    public GameScenario[] _scenario;
-
-    public bool IsLevelFirst;
-    public bool IsLevelSecond;
 
     void Start () {
         anim = GetComponent<Animator>();
@@ -52,6 +48,7 @@ public class MainMenuController : MonoBehaviour {
 
     public void openStartGameOptions()
     {
+        NameGame.SetActive(false);
         //enable respective panel
         MainOptionsPanel.SetActive(false);
         StartGameOptionsPanel.SetActive(true);
@@ -131,17 +128,13 @@ public class MainMenuController : MonoBehaviour {
 
     public void ShowLevel()
     {
-        Level.SetActive(true);
+        //Level.SetActive(true);
     }
     public void LevelFirst()
     {
         SceneManager.LoadScene(Const.Scenes.GAME);
     }
-    public void LeveSecond()
-    {
-        IsLevelSecond = true; 
-        IsLevelFirst = false;
-    }
+
     #endregion
 
     #region Back Buttons

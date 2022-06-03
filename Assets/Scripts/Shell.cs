@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 public   class Shell : WarEntity
-    {
+{
     private Vector3 _launchPoint, _targetPoint, _launchVelocity;
     private float _age;
     private float _blastRadius, _damage;
@@ -19,6 +19,7 @@ public   class Shell : WarEntity
         p.y -= 0.5f * 9.81f * _age * _age;
         if (p.y <= 0f)
         {
+            Debug.Log("zdec");
             Game.SpawnExplosion().Initialize(_targetPoint, _blastRadius, _damage);
             OriginFactory.Reclaim(this);
             return false;

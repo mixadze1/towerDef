@@ -27,8 +27,8 @@ MonoBehaviour:
       _min: 90
       _max: 120
     Damage:
-      _min: 1
-      _max: 1
+      _min: 2
+      _max: 2
   _medium:
     Prefab: {fileID: 4133515162113232143, guid: e19f94cfa9d6af342a82f13d5747e543, type: 3}
     Scale:
@@ -44,8 +44,8 @@ MonoBehaviour:
       _min: 200
       _max: 300
     Damage:
-      _min: 3
-      _max: 3
+      _min: 4
+      _max: 4
   _large:
     Prefab: {fileID: 3356648241630963414, guid: e5a84e373611fd549b383f2850ba7781, type: 3}
     Scale:
@@ -61,8 +61,8 @@ MonoBehaviour:
       _min: 444
       _max: 555
     Damage:
-      _min: 5
-      _max: 5
+      _min: 6
+      _max: 6
   _ultraLarge:
     Prefab: {fileID: 4133515162113232143, guid: e19f94cfa9d6af342a82f13d5747e543, type: 3}
     Scale:

@@ -63,6 +63,12 @@ public class Enemy : GameBehavior
     {
         if (Health <= 0)
         {
+            if (Damage >= 5)
+                GUIManager.instance.Coin += 10; 
+            if (Damage < 5)
+                GUIManager.instance.Coin += 5;
+            if (Damage >= 10)
+                GUIManager.instance.Coin += 20;
             Recycle();
             return false;
         }

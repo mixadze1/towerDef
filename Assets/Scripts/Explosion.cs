@@ -7,7 +7,7 @@ public class Explosion : WarEntity
     [SerializeField, Range(0f, 1f)] private float _duration = 0.5f;
     [SerializeField] private AnimationCurve _scaleCurve;
     [SerializeField] private AnimationCurve _colorCurve;
-
+    [SerializeField] private Transform _particleExplosion;
     private float _age;
     private static int _colorPropId = Shader.PropertyToID("_Color");
     private static MaterialPropertyBlock _propertyBlock;
@@ -18,17 +18,22 @@ public class Explosion : WarEntity
     {
         _meshRenderer =  GetComponent<MeshRenderer>();
     }
-    public void Initialize(Vector3 position, float blastRadius, float damage = 10)
+    public void Initialize(Vector3 position, float blastRadius, float damage = 50)
     {
+        if (blastRadius != 0.05f)
+        {
+            _particleExplosion.gameObject.SetActive(true);
+        }
+      
         if (damage > 0)
         {
             TargetPoint.FillBuffer(position, blastRadius);
             for (int i = 0; i < TargetPoint.BufferedCount; i++)
-            {
+            {              
+                
                 TargetPoint.GetBuffered(i).Enemy.TakeDamage(damage);
             }
         }
-       
         transform.localPosition = position;
         _scale = 2f * blastRadius;
     }
@@ -48,7 +53,7 @@ public class Explosion : WarEntity
         Color c = Color.red;
         c.a = _colorCurve.Evaluate(t);
         _propertyBlock.SetColor(_colorPropId, c);
-        _meshRenderer.SetPropertyBlock(_propertyBlock);
+        //_meshRenderer.SetPropertyBlock(_propertyBlock);
         transform.localScale = Vector3.one * (_scale * _scaleCurve.Evaluate(t));
         return true;
     }

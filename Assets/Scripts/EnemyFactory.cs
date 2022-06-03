@@ -32,7 +32,8 @@ using UnityEngine;
         var config = GetConfig(type);
             Enemy instance = CreateGameObjectInstance(config.Prefab);
             instance.OriginFactory = this;
-            instance.Initialize(config.Scale.RandomValueInRange, config.PathOffset.RandomValueInRange, config.Speed.RandomValueInRange, config.Health.RandomValueInRange, config.Damage.RandomValueInRange);
+            instance.Initialize(config.Scale.RandomValueInRange, config.PathOffset.RandomValueInRange, 
+                config.Speed.RandomValueInRange, config.Health.RandomValueInRange, config.Damage.RandomValueInRange);
             return instance; 
         }
     private EnemyConfig GetConfig(EnemyType type)

@@ -27,6 +27,7 @@ public class Game : MonoBehaviour
     [SerializeField] private Transform _windowLose; 
 
     [SerializeField] private TextMeshProUGUI _healthText;
+    [SerializeField, Range(100f,1500f)] private int _coin;
 
     private GameScenario.State _activateScenario;
 
@@ -41,6 +42,7 @@ public class Game : MonoBehaviour
     private Coroutine _prepareRoutine;
 
     private bool _scenarioInProcess;
+    private bool _isGetReady;
 
     private int _currentPlayerHealth;
 
@@ -58,6 +60,7 @@ public class Game : MonoBehaviour
         _tilesBuilder.Initialize(_contentFactory, _camera, _board, true);
         _healthText.text = _startingPlayerHealth.ToString();
         BeginNewGame();
+        GUIManager.instance.Coin = _coin;
     }
 
     private void Update()
@@ -73,6 +76,12 @@ public class Game : MonoBehaviour
                 _windowVictory.gameObject.SetActive(true);
             }
         }
+        if (_isGetReady)
+        {
+            _prepareRoutine = StartCoroutine(PrepareRoutine());
+            _isGetReady = false;
+        }
+
         _enemies.GameUpdate();
         Physics.SyncTransforms();
         _board.GameUpdate();
@@ -87,9 +96,9 @@ public class Game : MonoBehaviour
         _instance._enemies.Add(enemy);
     }
 
-    public void StartNewGame()
+    public void StartGame()
     {
-        BeginNewGame();
+        _isGetReady =true;
     }
 
     public static Shell SpawnShell()
@@ -105,8 +114,9 @@ public class Game : MonoBehaviour
         return shell;
     }
 
-    private void BeginNewGame()
+    public void BeginNewGame()
     {
+        GUIManager.instance.Coin = _coin;
         _scenarioInProcess = false;
         if (_prepareRoutine != null)
         {
@@ -117,7 +127,7 @@ public class Game : MonoBehaviour
         _board.ClearList();
         _currentPlayerHealth = _startingPlayerHealth;
         _windowWarning.gameObject.SetActive(true);
-        _prepareRoutine = StartCoroutine(PrepareRoutine());
+      
     }
 
     public static void EnemyReachedDestination(int damage)
@@ -139,7 +149,7 @@ public class Game : MonoBehaviour
     private IEnumerator PrepareRoutine()
     {
         yield return new WaitForSeconds(_prepareTime);
-        
+
         _activateScenario = _scenarion.Begin();
         _correctLevel++;
         _scenarioInProcess = true;

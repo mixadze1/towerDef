@@ -16,7 +16,6 @@ public class BuildButton : MonoBehaviour, IPointerDownHandler
 
     void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Zdfec");
         _listenerAction?.Invoke(_type);
     }
 }

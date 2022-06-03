@@ -6,11 +6,12 @@ public class TilesBuilder : MonoBehaviour
 {
     [SerializeField]
     private List<BuildButton> _buttons;
-
+    [SerializeField]
+    private ContentPrice _contentPrice;
     private GameTileContentFactory _contentFactory;
     private Camera _camera;
     private GameBoard _gameBoard;
-
+    private int _correctPrice;
     private bool _isEnabled;
 
     private Ray TouchRay => _camera.ScreenPointToRay(Input.mousePosition);
@@ -18,6 +19,9 @@ public class TilesBuilder : MonoBehaviour
     private GameTileContent _pendingTile;
     private bool _isDestroyAllowed;
 
+    public int PriceMortar;
+    public int PriceWall;
+    public int PriceLaser;
 
     private void Awake()
     {
@@ -31,6 +35,7 @@ public class TilesBuilder : MonoBehaviour
         _isDestroyAllowed = isDestroyAllowed;
         _camera = camera;
         _gameBoard = gameBoard;
+        _contentPrice.Initialize();
     }
 
     private void Update()
@@ -57,9 +62,11 @@ public class TilesBuilder : MonoBehaviour
         if (IsPointerUp())
         {
             var tile = _gameBoard.GetTile(TouchRay);
-            Debug.Log("tut");
+            GUIManager.instance.Coin -= _correctPrice;        
+            
             if (tile == null || _gameBoard.TryBuild(tile, _pendingTile) == false)
             {
+                GUIManager.instance.Coin += _correctPrice;
                 Destroy(_pendingTile.gameObject);
             }
 
@@ -73,6 +80,7 @@ public class TilesBuilder : MonoBehaviour
             return;
         if (IsPointerUp())
         {
+           
             var tile = _gameBoard.GetTile(TouchRay);
             if (tile == null ||tile.Content.Type == GameTileContentType.Destination || tile.Content.Type == GameTileContentType.SpawnPoint)
                 return;
@@ -103,7 +111,27 @@ public class TilesBuilder : MonoBehaviour
 
     private void OnBuildingSelected(GameTileContentType type)
     {
-        //TODO check money
-        _pendingTile = _contentFactory.Get(type);
+        Debug.Log(GUIManager.instance.Coin);
+        if (type == GameTileContentType.Laser && GUIManager.instance.Coin >= PriceLaser)
+        {
+            _correctPrice = PriceLaser;
+           _pendingTile = _contentFactory.Get(type);
+        }
+
+
+        if (type == GameTileContentType.Mortar && GUIManager.instance.Coin >= PriceMortar)
+        {
+            _correctPrice = PriceMortar;
+            _pendingTile = _contentFactory.Get(type);
+        }
+
+        if (type == GameTileContentType.Wall && GUIManager.instance.Coin >= PriceWall)
+        {
+            _correctPrice = PriceWall;
+            _pendingTile = _contentFactory.Get(type);
+        }
+
+        else
+            return;
     }
 }
