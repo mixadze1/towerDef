@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\TargetPoint.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\DirectionExtension.cs" />
+    <Compile Include="Assets\Scripts\Coin\Ads.cs" />
     <Compile Include="Assets\Scripts\GameTileContent.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\Source Demos\Animations.cs" />
     <Compile Include="Assets\Scripts\GameLoadingOperation.cs" />
@@ -156,7 +157,7 @@
     <Compile Include="Assets\Scripts\WarFactory.cs" />
     <Compile Include="Assets\Scripts\LoginWindow.cs" />
     <Compile Include="Assets\Scripts\EnemyType.cs" />
-    <Compile Include="Assets\Scripts\Coin\CoinForAds.cs" />
+    <Compile Include="Assets\Scripts\TurretTower.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

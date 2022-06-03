@@ -26,7 +26,7 @@ public class Game : MonoBehaviour
     [SerializeField] private Transform _windowVictory;
     [SerializeField] private Transform _windowLose; 
 
-    [SerializeField] private TextMeshProUGUI _healthText;
+    [SerializeField] public TextMeshProUGUI HealthText;
     [SerializeField, Range(100f,1500f)] private int _coin;
 
     private GameScenario.State _activateScenario;
@@ -44,7 +44,7 @@ public class Game : MonoBehaviour
     private bool _scenarioInProcess;
     private bool _isGetReady;
 
-    private int _currentPlayerHealth;
+    public int CurrentPlayerHealth;
 
     private int _correctLevel = 0;
 
@@ -58,7 +58,7 @@ public class Game : MonoBehaviour
         _decorate.Initialize(_boardSize);
         _board.Initialize(_boardSize, _contentFactory);
         _tilesBuilder.Initialize(_contentFactory, _camera, _board, true);
-        _healthText.text = _startingPlayerHealth.ToString();
+        HealthText.text = _startingPlayerHealth.ToString();
         BeginNewGame();
         GUIManager.instance.Coin = _coin;
     }
@@ -67,7 +67,7 @@ public class Game : MonoBehaviour
     {
         if (_scenarioInProcess)
         {
-            if (_currentPlayerHealth <= 0)
+            if (CurrentPlayerHealth <= 0)
             {
                 _windowLose.gameObject.SetActive(true);
             }
@@ -125,23 +125,24 @@ public class Game : MonoBehaviour
         _enemies.Clear();
         _nonEnemies.Clear();
         _board.ClearList();
-        _currentPlayerHealth = _startingPlayerHealth;
+        CurrentPlayerHealth = _startingPlayerHealth; 
+        _instance.HealthText.text = _instance.CurrentPlayerHealth.ToString();
         _windowWarning.gameObject.SetActive(true);
       
     }
 
     public static void EnemyReachedDestination(int damage)
     {
-        if (_instance._currentPlayerHealth > 0)
+        if (_instance.CurrentPlayerHealth > 0)
         {
-            _instance._currentPlayerHealth -= damage;
-            _instance._healthText.text = _instance._currentPlayerHealth.ToString();
+            _instance.CurrentPlayerHealth -= damage;
+            _instance.HealthText.text = _instance.CurrentPlayerHealth.ToString();
         }
 
-        if (_instance._currentPlayerHealth <= 0)
+        if (_instance.CurrentPlayerHealth <= 0)
         {
-            _instance._currentPlayerHealth = 0;
-            _instance._healthText.text = _instance._currentPlayerHealth.ToString();
+            _instance.CurrentPlayerHealth = 0;
+            _instance.HealthText.text = _instance.CurrentPlayerHealth.ToString();
         }
          
     }

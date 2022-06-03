@@ -28,10 +28,12 @@ public class GameTileContent : MonoBehaviour
         SpawnPoint,
         Tower, 
         Laser,
-        Mortar
+        Mortar,
+        Turret
 }
 public enum TowerType
 {
     Laser,
-    Mortar
+    Mortar,
+    Turret
 }
