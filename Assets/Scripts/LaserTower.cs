@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using propertiesTower;
 public class LaserTower : Tower
 {
     [SerializeField, Range(1f, 100f)]
@@ -20,8 +21,8 @@ public class LaserTower : Tower
     {
         _laserBeamScale = _laserBeam.localScale;
         _laserBeamStartPosition = _laserBeam.localPosition - new Vector3(0,-2,0);
-    }
 
+    }
     public override void GameUpdate()
     {
         if (IsAcquiareTarget(out _target) || IsTargetTracked(ref _target))

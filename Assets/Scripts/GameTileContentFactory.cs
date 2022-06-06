@@ -12,7 +12,10 @@ public class GameTileContentFactory : GameObjectFactory
     [SerializeField] private GameTileContent _spawnPrefab;
     [SerializeField] private GameTileContent _laserPrefab;
     [SerializeField] private GameTileContent _mortarPrefab;
-    [SerializeField] private Tower[] _towerPrefabs;
+    [SerializeField] private GameTileContent _turretPrefab;
+    [SerializeField] private GameTileContent _turretTypeToPrefab;
+   [SerializeField] private Tower[] _towerPrefabs;
+  
     public void Reclaim(GameTileContent content)
     {
         Destroy(content.gameObject);
@@ -33,6 +36,10 @@ public class GameTileContentFactory : GameObjectFactory
                 return Get(_laserPrefab);
             case GameTileContentType.Mortar:
                 return Get(_mortarPrefab);
+            case GameTileContentType.Turret:
+                return Get(_turretPrefab);
+            case GameTileContentType.TurretTypeTwo:
+                return Get(_turretTypeToPrefab);
         }
         return null;
     }

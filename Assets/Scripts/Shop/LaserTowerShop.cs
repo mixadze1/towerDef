@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using propertiesTower;
 
 public class LaserTowerShop : MonoBehaviour
 {
@@ -22,18 +23,51 @@ public class LaserTowerShop : MonoBehaviour
     }
     private void Init()
     {
-        _damageText.text = _laser._damagePerSecond.ToString("F2");
-        _rangeText.text = _laser._targetingRange.ToString("F2");
+        CalculateText();
+        CalculateTower();
 
-        _damageTextUpgrade.text = "+ " +_upgradeDamage.ToString("F2");
+        
+
+        
+    }
+
+    private void CalculateTower()
+    {
+        if (PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_RANGE) > 3)
+        {
+            _laser._targetingRange = PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_RANGE);
+        }
+
+        if (PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_DAMAGE) > 10)
+            _laser._damagePerSecond = PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_DAMAGE);
+    }
+
+    private void CalculateText()
+    {
+        if (PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_DAMAGE) > _laser._damagePerSecond)
+            _damageText.text = PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_DAMAGE).ToString("F2");
+        else
+            _damageText.text = _laser._damagePerSecond.ToString("F2");
+
+
+        if (PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_RANGE) > _laser._targetingRange)
+            _rangeText.text = PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_RANGE).ToString("F2");
+        else
+            _rangeText.text = _laser._targetingRange.ToString("F2");
+
+        _damageTextUpgrade.text = "+ " + _upgradeDamage.ToString("F2");
         _rangeTextUpgrade.text = "+ " + _upgradeRange.ToString("F2");
     }
     public void Upgrade()
     {
-
+       
         _laser._damagePerSecond += _upgradeDamage;
+        PlayerPrefs.SetFloat(PrefsForLaserTower.LASER_DAMAGE,_laser._damagePerSecond);
+
         _laser._targetingRange += _upgradeRange;
-        Init();
+        PlayerPrefs.SetFloat(PrefsForLaserTower.LASER_RANGE,_laser._targetingRange);
+
+      Init();
 
     }
 }

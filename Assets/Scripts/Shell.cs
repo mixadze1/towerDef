@@ -4,34 +4,63 @@ public   class Shell : WarEntity
     private Vector3 _launchPoint, _targetPoint, _launchVelocity;
     private float _age;
     private float _blastRadius, _damage;
-    public void Initialize(Vector3 launchPoint, Vector3 targetPoint, Vector3 launchVelocity, float blastRaius, float damage)
+    private TowerType _type;
+    public void Initialize(Vector3 launchPoint, Vector3 targetPoint, Vector3 launchVelocity, float blastRaius, float damage, TowerType type)
     {
         _launchPoint = launchPoint; 
         _targetPoint = targetPoint;
         _launchVelocity = launchVelocity;
         _blastRadius = blastRaius;
         _damage = damage;
+        _type = type;
     }
     public override bool GameUpdate()
     {
-        _age += Time.deltaTime;
-        Vector3 p = _launchPoint + _launchVelocity * _age;
-        p.y -= 0.5f * 9.81f * _age * _age;
-        if (p.y <= 0f)
+        if (_type == TowerType.Mortar)
         {
-            Debug.Log("zdec");
-            Game.SpawnExplosion().Initialize(_targetPoint, _blastRadius, _damage);
-            OriginFactory.Reclaim(this);
-            return false;
+            _age += Time.deltaTime;
+            Vector3 p = _launchPoint + _launchVelocity * _age;
+            p.y -= 0.5f * 9.81f * _age * _age;
+            if (p.y <= 0f)
+            {
+                Debug.Log("zdec");
+                Game.SpawnExplosion().Initialize(_targetPoint, _blastRadius, _type, _damage);
+                OriginFactory.Reclaim(this);
+                return false;
+            }
+            transform.localPosition = p;
+
+            Vector3 d = _launchVelocity;
+            d.y -= 9.81f * _age;
+            transform.localRotation = Quaternion.LookRotation(d);
+
+            Game.SpawnExplosion().Initialize(p, 0.05f, _type, _damage);
+
+            return true;
         }
-        transform.localPosition = p;
+        else
+        {
+            transform.localScale =new Vector3( 0.1f, 0.1f, 0.1f);
+            _age += Time.deltaTime;
+            Vector3 p = _launchPoint + _launchVelocity * _age;
+            //p.y -= 0.5f * 9.81f * _age * _age;
+            if (p.y <= 0f)
+            {
+                Game.SpawnExplosion().Initialize(_targetPoint, _blastRadius, _type, _damage);
+                OriginFactory.Reclaim(this);
+                return false;
+            }
+            transform.localPosition = p;
 
-        Vector3 d = _launchVelocity;
-        d.y -= 9.81f * _age;
-        transform.localRotation = Quaternion.LookRotation(d);
+            Vector3 d = _launchVelocity;
+            d.y -= 9.81f * _age;
 
-        Game.SpawnExplosion().Initialize(p,0.05f);
+            transform.localRotation = Quaternion.LookRotation(d);
 
-        return true;
+            Game.SpawnExplosion().Initialize(p, 0.05f, _type, _damage);
+
+            return true;
+        }
+        
     }
 }

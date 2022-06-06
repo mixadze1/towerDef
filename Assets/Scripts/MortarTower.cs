@@ -14,8 +14,8 @@ public class MortarTower : Tower
     private void Awake()
     {
         OnValidate();
+       
     }
-
     private void OnValidate()
     {
         float x = _targetingRange + 1.81f;
@@ -68,6 +68,6 @@ public class MortarTower : Tower
         _mortar.localRotation = Quaternion.LookRotation(dir) * Quaternion.Euler(1f,1f,30f);
 
         Game.SpawnShell().Initialize(launchPoint, targetPoint,
-            new Vector3(s * cosTheta * dir.x, s * sinTheta, s * cosTheta * dir.z), _shellBlastRadius, _damage);
+            new Vector3(s * cosTheta * dir.x, s * sinTheta, s * cosTheta * dir.z), _shellBlastRadius, _damage, Type);
     }
 }

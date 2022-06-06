@@ -22,6 +22,7 @@ public class TilesBuilder : MonoBehaviour
     public int PriceMortar;
     public int PriceWall;
     public int PriceLaser;
+    public int PriceTurret;
 
     private void Awake()
     {
@@ -112,6 +113,11 @@ public class TilesBuilder : MonoBehaviour
     private void OnBuildingSelected(GameTileContentType type)
     {
         Debug.Log(GUIManager.instance.Coin);
+        if (type == GameTileContentType.Turret && GUIManager.instance.Coin >= PriceTurret)
+        {
+            _correctPrice = PriceTurret;
+            _pendingTile = _contentFactory.Get(type);
+        }
         if (type == GameTileContentType.Laser && GUIManager.instance.Coin >= PriceLaser)
         {
             _correctPrice = PriceLaser;
@@ -126,6 +132,11 @@ public class TilesBuilder : MonoBehaviour
         }
 
         if (type == GameTileContentType.Wall && GUIManager.instance.Coin >= PriceWall)
+        {
+            _correctPrice = PriceWall;
+            _pendingTile = _contentFactory.Get(type);
+        }
+        if (type == GameTileContentType.TurretTypeTwo && GUIManager.instance.Coin >= 100)
         {
             _correctPrice = PriceWall;
             _pendingTile = _contentFactory.Get(type);

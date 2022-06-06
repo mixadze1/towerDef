@@ -58,6 +58,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\LoadingScreen.cs" />
     <Compile Include="Assets\Scripts\MenuLoadingOperation.cs" />
+    <Compile Include="Assets\Scripts\Level\BuildLevelsButton.cs" />
     <Compile Include="Assets\Scripts\ILoadingOperation.cs" />
     <Compile Include="Assets\Scripts\TypeEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Assets\Scripts\GameBehavior.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\EnemySpawnSequence.cs" />
+    <Compile Include="Assets\Scripts\Shop\LaserTowerShop.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\WarEntity.cs" />
@@ -100,6 +102,7 @@
     <Compile Include="Assets\Scripts\GameTileContent.cs" />
     <Compile Include="Assets\Scripts\TurretTower.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\Source Demos\Animations.cs" />
+    <Compile Include="Assets\Scripts\Shop\MortarTowerShop.cs" />
     <Compile Include="Assets\Scripts\GameLoadingOperation.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
@@ -120,6 +123,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\UserInfoContatiner.cs" />
     <Compile Include="Assets\Scripts\TilesBuilder.cs" />
+    <Compile Include="Assets\Scripts\Shop\Shop.cs" />
     <Compile Include="Assets\Scripts\ContentPrice.cs" />
     <Compile Include="Assets\Scripts\EnemyView.cs" />
     <Compile Include="Assets\Scripts\ConfigOperation.cs" />
@@ -131,6 +135,7 @@
     <Compile Include="Assets\Scripts\GameObjectFactory.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_New.cs" />
     <Compile Include="Assets\AurynSky\Forest Pack\Scripts\ChestDemo.cs" />
+    <Compile Include="Assets\Scripts\PrefsForLaserTower.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Scripts\Explosion.cs" />
@@ -153,16 +158,14 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\TargetPointTrigger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
+    <Compile Include="Assets\Scripts\Level\LevelBuilder.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\WarFactory.cs" />
     <Compile Include="Assets\Scripts\LoginWindow.cs" />
     <Compile Include="Assets\Scripts\EnemyType.cs" />
-    <Compile Include="Assets\Scripts\Level\BuildLevelsButton.cs" />
-    <Compile Include="Assets\Scripts\Level\LevelBuilder.cs" />
-    <Compile Include="Assets\Scripts\Shop\MortarTowerShop.cs" />
-    <Compile Include="Assets\Scripts\Shop\LaserTowerShop.cs" />
-    <Compile Include="Assets\Scripts\Shop\Shop.cs" />
+    <Compile Include="Assets\Scripts\ShellTurret.cs" />
+    <Compile Include="Assets\Scripts\ExplosionTurret.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
