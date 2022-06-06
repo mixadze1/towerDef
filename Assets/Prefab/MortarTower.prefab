@@ -431,9 +431,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 6
-  _targetingRange: 7
-  _price: 150
+  _targetingRange: 4.5
   _shootsPerSeconds: 0.5
   _mortar: {fileID: 4103575018561549800}
-  _shellBlastRadius: 1.206
-  _damage: 65
+  _shellBlastRadius: 0.8
+  _damage: 40

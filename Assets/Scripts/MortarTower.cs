@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 public class MortarTower : Tower
 {
-    [SerializeField, Range(0.5f, 2f)] private float _shootsPerSeconds = 1f;
-    [SerializeField] private Transform _mortar;
-    [SerializeField, Range(0.5f, 3f)] private float _shellBlastRadius = 1f;
-    [SerializeField, Range(1f, 100f)] private float _damage;
+    [SerializeField, Range(0.5f, 2f)] public float _shootsPerSeconds = 1f;
+    [SerializeField] protected Transform _mortar;
+    [SerializeField, Range(0.5f, 3f)] public float _shellBlastRadius = 1f;
+    [SerializeField, Range(1f, 100f)] public float _damage;
     public override TowerType Type => TowerType.Mortar;
 
     private float _launchSpeed;

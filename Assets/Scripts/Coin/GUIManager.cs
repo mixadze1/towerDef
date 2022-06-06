@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class GUIManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI coinTxt;
-    private int coin;
+    [SerializeField] private TextMeshProUGUI _coinText;
+    [SerializeField] private TextMeshProUGUI _dollarText;
+    private int _coin;
+    private int _dollar;
     public static GUIManager instance;
     void Awake()
     {
         instance = GetComponent<GUIManager>();
-        coinTxt.text = coin.ToString();
+        _coinText.text = _coin.ToString();
     }
 
    
@@ -19,14 +21,25 @@ public class GUIManager : MonoBehaviour
     {
         get
         {
-            return coin;
+            return _coin;
         }
 
         set
         {
-            coin = value;
-            coinTxt.text = coin.ToString();
+            _coin = value;
+            _coinText.text = _coin.ToString();
         }
     }
-
+    public int Dollar
+    {
+        get
+        {
+            return _dollar;
+        }
+        set
+        {
+            _dollar = value;
+            _dollarText.text = _dollar.ToString();
+        }
+    }
 }

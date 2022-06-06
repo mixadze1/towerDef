@@ -227,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 5
   _targetingRange: 3
-  _damagePerSecond: 13.5
+  _damagePerSecond: 9
   _turret: {fileID: 5372891487543279374}
   _laserBeam: {fileID: 5227737228787531652}
 --- !u!1 &5372891486150846549

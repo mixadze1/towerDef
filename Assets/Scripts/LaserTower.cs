@@ -2,7 +2,7 @@
 public class LaserTower : Tower
 {
     [SerializeField, Range(1f, 100f)]
-    private float _damagePerSecond = 10f;
+    public float _damagePerSecond = 10f;
 
     [SerializeField]
     private Transform _turret;

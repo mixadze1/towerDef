@@ -41,8 +41,8 @@ MonoBehaviour:
       _min: 0.32321513
       _max: 1.0625067
     Health:
-      _min: 200
-      _max: 300
+      _min: 206.94128
+      _max: 306.94128
     Damage:
       _min: 4
       _max: 4
@@ -58,8 +58,8 @@ MonoBehaviour:
       _min: 0.6620568
       _max: 0.9392908
     Health:
-      _min: 444
-      _max: 555
+      _min: 624.47327
+      _max: 735.4733
     Damage:
       _min: 6
       _max: 6

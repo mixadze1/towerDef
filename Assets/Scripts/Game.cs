@@ -15,7 +15,7 @@ public class Game : MonoBehaviour
 
     [SerializeField] private WarFactory _warFactory;
 
-    [SerializeField] private GameScenario _scenarion;
+    [SerializeField] public GameScenario _scenarion;
     [SerializeField] private TilesBuilder _tilesBuilder;
 
     [SerializeField, Range(10, 120)] private int _startingPlayerHealth = 100;
@@ -27,8 +27,8 @@ public class Game : MonoBehaviour
     [SerializeField] private Transform _windowLose; 
 
     [SerializeField] public TextMeshProUGUI HealthText;
-    [SerializeField, Range(100f,1500f)] private int _coin;
-
+    [SerializeField] private LevelBuilder _levelBuilder;
+    [SerializeField, Range(100f, 1500f)] public int _coin;
     private GameScenario.State _activateScenario;
 
     private GameBehaviorCollection _enemies = new GameBehaviorCollection();
@@ -59,7 +59,8 @@ public class Game : MonoBehaviour
         _board.Initialize(_boardSize, _contentFactory);
         _tilesBuilder.Initialize(_contentFactory, _camera, _board, true);
         HealthText.text = _startingPlayerHealth.ToString();
-        BeginNewGame();
+        BeginNewGame(); 
+        _levelBuilder.InitLevel();
         GUIManager.instance.Coin = _coin;
     }
 
