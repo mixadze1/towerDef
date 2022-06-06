@@ -7699,7 +7699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4c3bcbf0832df43a589670fb306df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinText: {fileID: 0}
+  _coinText: {fileID: 1277749225}
   _dollarText: {fileID: 0}
 --- !u!4 &988865554
 Transform:
