@@ -75,7 +75,7 @@ public class Game : MonoBehaviour
             {
                 _windowLose.gameObject.SetActive(true);
             }
-            if (!_activateScenario.Progress() && _enemies.IsEmpty)
+            if (!_activateScenario.Progress() && _enemies.IsEmpty && _windowLose.gameObject.activeSelf == false)
             {
                 _windowVictory.gameObject.SetActive(true);
             }
