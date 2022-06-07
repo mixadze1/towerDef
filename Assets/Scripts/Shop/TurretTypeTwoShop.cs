@@ -30,19 +30,19 @@ public class TurretTypeTwoShop : MonoBehaviour
 
     private void CalculateTower()
     {
-        if (PlayerPrefs.GetFloat(PrefsTurret.DAMAGE) > 2)
+        if (PlayerPrefs.GetFloat(PrefsTurret.DAMAGE) > 4)
         {
             _turret._targetingRange = PlayerPrefs.GetFloat(PrefsTurretTypeTwo.RANGE);
-            _turret._shootsPerSeconds = PlayerPrefs.GetFloat(PrefsTurretTypeTwo.DAMAGE);
+            _turret._damage = PlayerPrefs.GetFloat(PrefsTurretTypeTwo.DAMAGE);
         }
     }
 
     private void CalculateText()
     {
-        if (PlayerPrefs.GetFloat(PrefsTurretTypeTwo.DAMAGE) > 2)
+        if (PlayerPrefs.GetFloat(PrefsTurretTypeTwo.DAMAGE) > 4)
             _damageText.text = PlayerPrefs.GetFloat(PrefsTurretTypeTwo.DAMAGE).ToString("F2");
         else
-            _damageText.text = _turret._shootsPerSeconds.ToString("F2");
+            _damageText.text = _turret._damage.ToString("F2");
 
 
         if (PlayerPrefs.GetFloat(PrefsTurretTypeTwo.RANGE) > _turret._targetingRange)
@@ -60,7 +60,7 @@ public class TurretTypeTwoShop : MonoBehaviour
             GUIManager.instance.Dollar -= _shop.PriceUpgradeTurret;
             PlayerPrefs.SetInt(Dollar.DECIMAL, GUIManager.instance.Dollar);
 
-            _turret._shootsPerSeconds += _upgradeDamage;
+            _turret._damage += _upgradeDamage;
             PlayerPrefs.SetFloat(PrefsTurretTypeTwo.DAMAGE, _turret._shootsPerSeconds);
 
             _turret._targetingRange += _upgradeRange;

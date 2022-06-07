@@ -64,7 +64,6 @@ public class Game : MonoBehaviour
         _levelBuilder.InitLevel();
         GUIManager.instance.Coin = _coin;
         CalculateDollar();
-     
     }
 
     private void Update()
