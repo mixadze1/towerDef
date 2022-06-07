@@ -28,6 +28,7 @@ public class InterstialAds   : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
 
     public void OnUnityAdsShowStart(string placementId)
     {
+        Time.timeScale = 0;
         Debug.Log("startAds");
     }
 
@@ -39,6 +40,7 @@ public class InterstialAds   : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
         GUIManager.instance.Coin += 300;
+        Time.timeScale = 1;
     }
 
     public void OnUnityAdsAdLoaded(string placementId)

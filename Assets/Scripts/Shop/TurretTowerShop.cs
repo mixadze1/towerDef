@@ -40,15 +40,17 @@ public class TurretTowerShop : MonoBehaviour
     private void CalculateText()
     {
         if (PlayerPrefs.GetFloat(PrefsTurret.DAMAGE) > 3)
+        {
             _damageText.text = PlayerPrefs.GetFloat(PrefsTurret.DAMAGE).ToString("F2");
-        else
-            _damageText.text = _turret._shootsPerSeconds.ToString("F2");
-
-
-        if (PlayerPrefs.GetFloat(PrefsTurret.RANGE) > _turret._targetingRange)
             _rangeText.text = PlayerPrefs.GetFloat(PrefsTurret.RANGE).ToString("F2");
+        }
+           
         else
+        {
+            _damageText.text = _turret._shootsPerSeconds.ToString("F2");
             _rangeText.text = _turret._targetingRange.ToString("F2");
+        }
+            
 
         _damageTextUpgrade.text = "+ " + _upgradeDamage.ToString("F2");
         _rangeTextUpgrade.text = "+ " + _upgradeRange.ToString("F2");

@@ -11,6 +11,8 @@ ScriptsOnlyBuild:
     - CameraRotation1
     - ContentPrice
     - DecorateBoard
+    - ElectoRocketTower
+    - ElectroTowerShop
     - Enemy
     - EnemyFactory
     - EnemyView
@@ -32,12 +34,15 @@ ScriptsOnlyBuild:
     - MortarTower
     - MortarTowerShop
     - RewardedAds
+    - SFXManager
     - Shell
     - Shop
     - TargetPoint
     - TilesBuilder
     - TurretTower
     - TurretTowerShop
+    - TurretTypeTwoShop
+    - TurretTypeTwoTower
     - VictoryLose
     - WarFactory
     Unity.Rider.Editor.dll:
@@ -49,11 +54,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -103,6 +103,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 90
@@ -140,77 +144,87 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2242}
     - Class: 114
-      Script: {instanceID: 2462}
+      Script: {instanceID: 2382}
     - Class: 114
-      Script: {instanceID: 2486}
+      Script: {instanceID: 2464}
     - Class: 114
-      Script: {instanceID: 2496}
+      Script: {instanceID: 2488}
     - Class: 114
-      Script: {instanceID: 2622}
+      Script: {instanceID: 2498}
     - Class: 114
-      Script: {instanceID: 2670}
+      Script: {instanceID: 2624}
     - Class: 114
-      Script: {instanceID: 2706}
+      Script: {instanceID: 2672}
     - Class: 114
-      Script: {instanceID: 3008}
+      Script: {instanceID: 2708}
     - Class: 114
-      Script: {instanceID: 3106}
+      Script: {instanceID: 3010}
     - Class: 114
-      Script: {instanceID: 3126}
+      Script: {instanceID: 3108}
     - Class: 114
-      Script: {instanceID: 3156}
+      Script: {instanceID: 3128}
+    - Class: 114
+      Script: {instanceID: 3158}
     - Class: 114
       Script: {instanceID: 3174}
     - Class: 114
-      Script: {instanceID: 3194}
+      Script: {instanceID: 3178}
+    - Class: 114
+      Script: {instanceID: 3198}
     - Class: 114
       Script: {instanceID: 3302}
     - Class: 114
-      Script: {instanceID: 3354}
+      Script: {instanceID: 3310}
     - Class: 114
-      Script: {instanceID: 3384}
+      Script: {instanceID: 3362}
     - Class: 114
-      Script: {instanceID: 3386}
+      Script: {instanceID: 3392}
     - Class: 114
-      Script: {instanceID: 3412}
+      Script: {instanceID: 3394}
     - Class: 114
-      Script: {instanceID: 3598}
+      Script: {instanceID: 3420}
     - Class: 114
-      Script: {instanceID: 3620}
+      Script: {instanceID: 3450}
     - Class: 114
-      Script: {instanceID: 3794}
+      Script: {instanceID: 3608}
     - Class: 114
-      Script: {instanceID: 3946}
+      Script: {instanceID: 3630}
     - Class: 114
-      Script: {instanceID: 3976}
+      Script: {instanceID: 3804}
     - Class: 114
-      Script: {instanceID: 3988}
+      Script: {instanceID: 3956}
     - Class: 114
-      Script: {instanceID: 3996}
+      Script: {instanceID: 3986}
     - Class: 114
-      Script: {instanceID: 4516}
+      Script: {instanceID: 3998}
     - Class: 114
-      Script: {instanceID: 4536}
+      Script: {instanceID: 4006}
     - Class: 114
-      Script: {instanceID: 4556}
+      Script: {instanceID: 4398}
     - Class: 114
-      Script: {instanceID: 4590}
+      Script: {instanceID: 4528}
     - Class: 114
-      Script: {instanceID: 4652}
+      Script: {instanceID: 4548}
     - Class: 114
-      Script: {instanceID: 4684}
+      Script: {instanceID: 4568}
     - Class: 114
-      Script: {instanceID: 4736}
+      Script: {instanceID: 4582}
     - Class: 114
-      Script: {instanceID: 4740}
+      Script: {instanceID: 4604}
     - Class: 114
-      Script: {instanceID: 4752}
+      Script: {instanceID: 4666}
     - Class: 114
-      Script: {instanceID: 4888}
+      Script: {instanceID: 4698}
     - Class: 114
-      Script: {instanceID: 4952}
+      Script: {instanceID: 4750}
     - Class: 114
-      Script: {instanceID: 60880}
+      Script: {instanceID: 4754}
+    - Class: 114
+      Script: {instanceID: 4766}
+    - Class: 114
+      Script: {instanceID: 4902}
+    - Class: 114
+      Script: {instanceID: 4966}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -283,29 +297,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2170}
     - Class: 114
-      Script: {instanceID: 2496}
+      Script: {instanceID: 2498}
     - Class: 114
-      Script: {instanceID: 2622}
+      Script: {instanceID: 2624}
     - Class: 114
-      Script: {instanceID: 2670}
+      Script: {instanceID: 2672}
     - Class: 114
-      Script: {instanceID: 3008}
+      Script: {instanceID: 3010}
     - Class: 114
-      Script: {instanceID: 3106}
+      Script: {instanceID: 3108}
     - Class: 114
-      Script: {instanceID: 3722}
+      Script: {instanceID: 3732}
     - Class: 114
-      Script: {instanceID: 3952}
+      Script: {instanceID: 3962}
     - Class: 114
-      Script: {instanceID: 4082}
+      Script: {instanceID: 4092}
     - Class: 114
-      Script: {instanceID: 4100}
+      Script: {instanceID: 4110}
     - Class: 114
-      Script: {instanceID: 4202}
+      Script: {instanceID: 4212}
     - Class: 114
-      Script: {instanceID: 4512}
+      Script: {instanceID: 4524}
     - Class: 114
-      Script: {instanceID: 4894}
+      Script: {instanceID: 4908}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -521,6 +535,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: f26ac8aec06f9a1a8de8e89b076aab49
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ElectroTowerShop
   - hash:
       serializedVersion: 2
       Hash: 4f60ff347d4efee4ef8cc7f627735018
@@ -751,6 +771,12 @@ ScriptsOnlyBuild:
     className: TargetPoint
   - hash:
       serializedVersion: 2
+      Hash: 5ac8daea7b0ed76d636482687145bb1a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ElectoRocketTower
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -779,6 +805,18 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: ContentSizeFitter
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RocketTower
+  - hash:
+      serializedVersion: 2
+      Hash: f9853aec4e4bb8ccd9d6994277ebfe38
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TurretTypeTwoShop
   - hash:
       serializedVersion: 2
       Hash: 31d7809439aed040b4919aa9d5360f56
@@ -839,6 +877,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: PlayerQuitHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 009b459bb9ff7a6a7b9856ac1f508a33
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SFXManager
   - hash:
       serializedVersion: 2
       Hash: 2c0a467ee7950c941c2dd8ef6b974a7e
@@ -1015,7 +1059,7 @@ ScriptsOnlyBuild:
     className: TMP_UiFrameRateCounter
   - hash:
       serializedVersion: 2
-      Hash: 0a5f73f7e3c7ceafae5be6afb1f53d29
+      Hash: 3a7a63bfda40fc1368095d0cbf3d1b67
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TilesBuilder
@@ -1027,13 +1071,13 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 14ef87168c8f081faca07b8e6cba5733
+      Hash: 9f7a7abcd4cd59368fbf2717a4ae7331
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Shop
   - hash:
       serializedVersion: 2
-      Hash: a8ffe4abb34638f89bab1eb9358e1ed5
+      Hash: 9af7f4d57af86358aa109391ba3ae1be
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ContentPrice
@@ -1123,6 +1167,12 @@ ScriptsOnlyBuild:
     className: ChestDemo
   - hash:
       serializedVersion: 2
+      Hash: bf9efa2faacde0f60b00558548aacded
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AboutGame
+  - hash:
+      serializedVersion: 2
       Hash: 6980e81ddc615a861309d2d659cc3760
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -1147,7 +1197,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: e7f6a5c802e6a08c3cdd0251282b8591
+      Hash: 97b26f5c3a8ce805580a3f7c17d6fcb5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Explosion
@@ -1187,6 +1237,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ScrollbarEventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 5ac8daea7b0ed76d636482687145bb1a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TurretTypeTwoTower
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1249,7 +1305,7 @@ ScriptsOnlyBuild:
     className: Game
   - hash:
       serializedVersion: 2
-      Hash: eeda7c3e1d2eacf07ee689fabed5cec5
+      Hash: 38cbecb59183c711e74b7802b4d8d288
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameTileContentFactory
@@ -1331,20 +1387,8 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Login
     className: LoginWindow
-  - hash:
-      serializedVersion: 2
-      Hash: bf9efa2faacde0f60b00558548aacded
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: AboutGame
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: RocketTower
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/Game.unity
-  playerPath: D:/game/towerd.apk
+  playerPath: D:/game/towerDefencef.aab

@@ -33,6 +33,7 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
 
     public void OnUnityAdsShowStart(string placementId)
     {
+        Time.timeScale = 0;
         Debug.Log("startAds");
     }
 
@@ -45,6 +46,7 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     {
         GUIManager.instance.Dollar += 50;
         PlayerPrefs.SetInt(Dollar.DECIMAL, GUIManager.instance.Dollar);
+        Time.timeScale = 1;
     }
 
     public void OnUnityAdsAdLoaded(string placementId)
