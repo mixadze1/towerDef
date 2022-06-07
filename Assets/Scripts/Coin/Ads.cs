@@ -1,43 +1,29 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Advertisements;
-public class Ads : MonoBehaviour, IUnityAdsShowListener
+public class Ads : MonoBehaviour, IUnityAdsInitializationListener
 {
-    //"4782924";
-    [SerializeField] private Game _game;
-    [SerializeField] private int _coin;
-    [SerializeField] private int _hp;
+    [SerializeField] private string _androidGameId = "4782924";
+    [SerializeField] private string _iosGameId = "4782925";
+    [SerializeField] private bool _testMode = true;
+    private string _gameId;
     void Awake()
     {
-        //Advertisement.AddListener(this);
+        InitializeAds();
     }
-    public void GetCoin()
+    public void InitializeAds()
     {
-        GUIManager.instance.Coin += _coin;
-    }
-    public void GetHP()
-    {
-        _game.CurrentPlayerHealth += _hp;
-        _game.HealthText.text = _game.CurrentPlayerHealth.ToString();
+        _gameId = (Application.platform == RuntimePlatform.IPhonePlayer) ? _iosGameId : _androidGameId;
+        Advertisement.Initialize(_gameId, _testMode, this);
     }
 
-    public void OnUnityAdsShowClick(string placementId)
+    public void OnInitializationComplete()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Initialization");
     }
 
-    public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message)
     {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
-    { 
-        throw new System.NotImplementedException();
-    }
-
-    public void OnUnityAdsShowStart(string placementId)
-    {
-        throw new System.NotImplementedException();
+       Debug.Log($"Unity Ads failed: {error.ToString()} - {message}");
     }
 }

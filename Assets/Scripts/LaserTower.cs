@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using propertiesTower;
+
 public class LaserTower : Tower
 {
     [SerializeField, Range(1f, 100f)]

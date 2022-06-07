@@ -7,6 +7,7 @@ public class MortarTowerShop : MonoBehaviour
 {
   
     [SerializeField] private MortarTower _mortar;
+    [SerializeField] private Shop _shop;
     [Header("UIMortar")]
     [SerializeField] private TextMeshProUGUI _rangeBlast;
     [SerializeField] private TextMeshProUGUI _damageText;
@@ -28,14 +29,19 @@ public class MortarTowerShop : MonoBehaviour
         Init();
     }
     private void Init()
+    {   
+            CalculateTower();
+            CalculateText();
+    }
+
+    private void CalculateText()
     {
-        CalculateTower();
-        if (PlayerPrefs.GetFloat(PrefsForMortarTower.MORTAR_DAMAGE) > 40)
+        if (PlayerPrefs.GetFloat(PrefsMortar.MORTAR_DAMAGE) > 40)
         {
-            _damageText.text = PlayerPrefs.GetFloat(PrefsForMortarTower.MORTAR_DAMAGE).ToString("F2");
-            _rangeBlast.text = PlayerPrefs.GetFloat(PrefsForMortarTower.MORTAR_RANGE).ToString("F2");
-            _speedText.text = PlayerPrefs.GetFloat(PrefsForMortarTower.MORTAR_SPEED).ToString("F2");
-            _rangeText.text = PlayerPrefs.GetFloat(PrefsForMortarTower.MORTAR_RANGE).ToString("F2");
+            _damageText.text = PlayerPrefs.GetFloat(PrefsMortar.MORTAR_DAMAGE).ToString("F2");
+            _rangeBlast.text = PlayerPrefs.GetFloat(PrefsMortar.MORTAR_RANGE).ToString("F2");
+            _speedText.text = PlayerPrefs.GetFloat(PrefsMortar.MORTAR_SPEED).ToString("F2");
+            _rangeText.text = PlayerPrefs.GetFloat(PrefsMortar.MORTAR_RANGE).ToString("F2");
         }
         else
         {
@@ -44,38 +50,44 @@ public class MortarTowerShop : MonoBehaviour
             _speedText.text = _mortar._shootsPerSeconds.ToString("F2");
             _rangeText.text = _mortar._targetingRange.ToString("F2");
         }
-        
+
 
         _blastTextUpgrade.text = "+ " + _upgradeBlast.ToString("F2");
         _damageTextUpgrade.text = "+ " + _upgradeDamage.ToString("F2");
         _rangeTextUpgrade.text = "+ " + _upgradeRange.ToString("F2");
         _speedTextUpgrade.text = "+ " + _upgradeSpeed.ToString("F2");
     }
+
     private void CalculateTower()
     {
-        if (_mortar._damage < PlayerPrefs.GetFloat(PrefsForMortarTower.MORTAR_DAMAGE))
+        if (_mortar._damage < PlayerPrefs.GetFloat(PrefsMortar.MORTAR_DAMAGE))
         {
-            _mortar._shootsPerSeconds = PlayerPrefs.GetFloat(PrefsForMortarTower.MORTAR_SPEED);
-            _mortar._shellBlastRadius = PlayerPrefs.GetFloat(PrefsForMortarTower.MORTAR_BLAST);
-            _mortar._damage = PlayerPrefs.GetFloat(PrefsForMortarTower.MORTAR_DAMAGE);
-            _mortar._targetingRange = PlayerPrefs.GetFloat(PrefsForMortarTower.MORTAR_RANGE);
+            _mortar._shootsPerSeconds = PlayerPrefs.GetFloat(PrefsMortar.MORTAR_SPEED);
+            _mortar._shellBlastRadius = PlayerPrefs.GetFloat(PrefsMortar.MORTAR_BLAST);
+            _mortar._damage = PlayerPrefs.GetFloat(PrefsMortar.MORTAR_DAMAGE);
+            _mortar._targetingRange = PlayerPrefs.GetFloat(PrefsMortar.MORTAR_RANGE);
         }
     }
     public void Upgrade()
     {
-       
-        _mortar._damage += _upgradeDamage;
-        PlayerPrefs.SetFloat(PrefsForMortarTower.MORTAR_DAMAGE, _mortar._damage);
+        if (GUIManager.instance.Dollar > _shop.PriceUpgradeMortar)
+        {
+            GUIManager.instance.Dollar -= _shop.PriceUpgradeMortar;
+            PlayerPrefs.SetInt(Dollar.DECIMAL, GUIManager.instance.Dollar);
 
-        _mortar._shellBlastRadius += _upgradeRange;
-        PlayerPrefs.SetFloat(PrefsForMortarTower.MORTAR_BLAST, _mortar._shellBlastRadius);
+            _mortar._damage += _upgradeDamage;
+            PlayerPrefs.SetFloat(PrefsMortar.MORTAR_DAMAGE, _mortar._damage);
 
-        _mortar._shootsPerSeconds += _upgradeSpeed;
-        PlayerPrefs.SetFloat(PrefsForMortarTower.MORTAR_SPEED, _mortar._shootsPerSeconds);
+            _mortar._shellBlastRadius += _upgradeRange;
+            PlayerPrefs.SetFloat(PrefsMortar.MORTAR_BLAST, _mortar._shellBlastRadius);
 
-        _mortar._targetingRange += _upgradeRange;
-        PlayerPrefs.SetFloat(PrefsForMortarTower.MORTAR_RANGE, _mortar._targetingRange);
-        Init();
+            _mortar._shootsPerSeconds += _upgradeSpeed;
+            PlayerPrefs.SetFloat(PrefsMortar.MORTAR_SPEED, _mortar._shootsPerSeconds);
+
+            _mortar._targetingRange += _upgradeRange;
+            PlayerPrefs.SetFloat(PrefsMortar.MORTAR_RANGE, _mortar._targetingRange);
+            Init();
+        }
     }
 
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using propertiesTower;
 public class Game : MonoBehaviour
 {
     [SerializeField] private Vector2Int _boardSize;
@@ -29,6 +29,7 @@ public class Game : MonoBehaviour
     [SerializeField] public TextMeshProUGUI HealthText;
     [SerializeField] private LevelBuilder _levelBuilder;
     [SerializeField, Range(100f, 1500f)] public int _coin;
+    [SerializeField] private int _dollar = 500;
     private GameScenario.State _activateScenario;
 
     private GameBehaviorCollection _enemies = new GameBehaviorCollection();
@@ -62,6 +63,8 @@ public class Game : MonoBehaviour
         BeginNewGame(); 
         _levelBuilder.InitLevel();
         GUIManager.instance.Coin = _coin;
+        CalculateDollar();
+     
     }
 
     private void Update()
@@ -87,6 +90,18 @@ public class Game : MonoBehaviour
         Physics.SyncTransforms();
         _board.GameUpdate();
         _nonEnemies.GameUpdate();
+    }
+
+    private void CalculateDollar()
+    {
+        if (PlayerPrefs.GetInt(Dollar.DECIMAL) != 0)
+        {
+            GUIManager.instance.Dollar = PlayerPrefs.GetInt(Dollar.DECIMAL);
+        }
+        else
+        {
+            GUIManager.instance.Dollar = _dollar;
+        }
     }
 
     public static void SpawnEnemy(EnemyFactory factory, EnemyType type)

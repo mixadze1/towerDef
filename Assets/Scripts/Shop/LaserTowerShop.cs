@@ -7,6 +7,7 @@ using propertiesTower;
 public class LaserTowerShop : MonoBehaviour
 {
     [SerializeField] private LaserTower _laser;
+    [SerializeField] private Shop _shop;
     [Header("UILaser")]
     [SerializeField] private TextMeshProUGUI _damageText;
     [SerializeField] private TextMeshProUGUI _rangeText;
@@ -24,34 +25,30 @@ public class LaserTowerShop : MonoBehaviour
     private void Init()
     {
         CalculateText();
-        CalculateTower();
-
-        
-
-        
+        CalculateTower();    
     }
 
     private void CalculateTower()
     {
-        if (PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_RANGE) > 3)
+        if (PlayerPrefs.GetFloat(PrefsLaser.LASER_RANGE) > 3)
         {
-            _laser._targetingRange = PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_RANGE);
+            _laser._targetingRange = PlayerPrefs.GetFloat(PrefsLaser.LASER_RANGE);
         }
 
-        if (PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_DAMAGE) > 10)
-            _laser._damagePerSecond = PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_DAMAGE);
+        if (PlayerPrefs.GetFloat(PrefsLaser.LASER_DAMAGE) > 10)
+            _laser._damagePerSecond = PlayerPrefs.GetFloat(PrefsLaser.LASER_DAMAGE);
     }
 
     private void CalculateText()
     {
-        if (PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_DAMAGE) > _laser._damagePerSecond)
-            _damageText.text = PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_DAMAGE).ToString("F2");
+        if (PlayerPrefs.GetFloat(PrefsLaser.LASER_DAMAGE) > _laser._damagePerSecond)
+            _damageText.text = PlayerPrefs.GetFloat(PrefsLaser.LASER_DAMAGE).ToString("F2");
         else
             _damageText.text = _laser._damagePerSecond.ToString("F2");
 
 
-        if (PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_RANGE) > _laser._targetingRange)
-            _rangeText.text = PlayerPrefs.GetFloat(PrefsForLaserTower.LASER_RANGE).ToString("F2");
+        if (PlayerPrefs.GetFloat(PrefsLaser.LASER_RANGE) > _laser._targetingRange)
+            _rangeText.text = PlayerPrefs.GetFloat(PrefsLaser.LASER_RANGE).ToString("F2");
         else
             _rangeText.text = _laser._targetingRange.ToString("F2");
 
@@ -60,14 +57,17 @@ public class LaserTowerShop : MonoBehaviour
     }
     public void Upgrade()
     {
-       
-        _laser._damagePerSecond += _upgradeDamage;
-        PlayerPrefs.SetFloat(PrefsForLaserTower.LASER_DAMAGE,_laser._damagePerSecond);
+        if (GUIManager.instance.Dollar > _shop.PriceUpgradeLaser)
+        {
+            GUIManager.instance.Dollar -= _shop.PriceUpgradeLaser;
+            PlayerPrefs.SetInt(Dollar.DECIMAL, GUIManager.instance.Dollar);
+            _laser._damagePerSecond += _upgradeDamage;
+            PlayerPrefs.SetFloat(PrefsLaser.LASER_DAMAGE, _laser._damagePerSecond);
 
-        _laser._targetingRange += _upgradeRange;
-        PlayerPrefs.SetFloat(PrefsForLaserTower.LASER_RANGE,_laser._targetingRange);
+            _laser._targetingRange += _upgradeRange;
+            PlayerPrefs.SetFloat(PrefsLaser.LASER_RANGE, _laser._targetingRange);
 
-      Init();
-
+            Init();
+        }
     }
 }
