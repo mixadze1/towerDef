@@ -14,6 +14,7 @@ public class GameTileContentFactory : GameObjectFactory
     [SerializeField] private GameTileContent _mortarPrefab;
     [SerializeField] private GameTileContent _turretPrefab;
     [SerializeField] private GameTileContent _turretTypeToPrefab;
+    [SerializeField] private GameTileContent _electroMortar;
    [SerializeField] private Tower[] _towerPrefabs;
   
     public void Reclaim(GameTileContent content)
@@ -40,6 +41,8 @@ public class GameTileContentFactory : GameObjectFactory
                 return Get(_turretPrefab);
             case GameTileContentType.TurretTypeTwo:
                 return Get(_turretTypeToPrefab);
+            case GameTileContentType.ElectroMortar:
+                return Get(_electroMortar);
         }
         return null;
     }

@@ -9,9 +9,13 @@ public class Shop : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _laserPrice;
     [SerializeField] private TextMeshProUGUI _mortarPrice;
     [SerializeField] private TextMeshProUGUI _turretPrice;
+    [SerializeField] private TextMeshProUGUI _turretTwo;
+    [SerializeField] private TextMeshProUGUI _electro;
     public int PriceUpgradeTurret;
     public int PriceUpgradeMortar;
     public int PriceUpgradeLaser;
+    public int PriceUpgradeTurretTypeTwo;
+    public int PriceElectro;
     private int i = 0;
 
     private void Awake()
@@ -23,6 +27,8 @@ public class Shop : MonoBehaviour
         _laserPrice.text = PriceUpgradeLaser.ToString();
         _mortarPrice.text = PriceUpgradeMortar.ToString();
         _turretPrice.text = PriceUpgradeTurret.ToString();
+        _turretTwo.text = PriceUpgradeTurretTypeTwo.ToString();
+        _electro.text = PriceElectro.ToString();
     }
 
     public void LeftButton()

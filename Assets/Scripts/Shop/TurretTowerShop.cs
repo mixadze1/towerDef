@@ -30,23 +30,23 @@ public class TurretTowerShop : MonoBehaviour
 
     private void CalculateTower()
     {
-        if (PlayerPrefs.GetFloat(PrefsTurret.TURRET_DAMAGE) > 3)
+        if (PlayerPrefs.GetFloat(PrefsTurret.DAMAGE) > 3)
         {
-            _turret._targetingRange = PlayerPrefs.GetFloat(PrefsLaser.LASER_RANGE);
-            _turret._shootsPerSeconds = PlayerPrefs.GetFloat(PrefsLaser.LASER_DAMAGE);
+            _turret._targetingRange = PlayerPrefs.GetFloat(PrefsTurret.RANGE);
+            _turret._shootsPerSeconds = PlayerPrefs.GetFloat(PrefsTurret.DAMAGE);
         }
     }
 
     private void CalculateText()
     {
-        if (PlayerPrefs.GetFloat(PrefsTurret.TURRET_DAMAGE) > _turret._shootsPerSeconds)
-            _damageText.text = PlayerPrefs.GetFloat(PrefsTurret.TURRET_DAMAGE).ToString("F2");
+        if (PlayerPrefs.GetFloat(PrefsTurret.DAMAGE) > 3)
+            _damageText.text = PlayerPrefs.GetFloat(PrefsTurret.DAMAGE).ToString("F2");
         else
             _damageText.text = _turret._shootsPerSeconds.ToString("F2");
 
 
-        if (PlayerPrefs.GetFloat(PrefsTurret.TURRET_RANGE) > _turret._targetingRange)
-            _rangeText.text = PlayerPrefs.GetFloat(PrefsTurret.TURRET_RANGE).ToString("F2");
+        if (PlayerPrefs.GetFloat(PrefsTurret.RANGE) > _turret._targetingRange)
+            _rangeText.text = PlayerPrefs.GetFloat(PrefsTurret.RANGE).ToString("F2");
         else
             _rangeText.text = _turret._targetingRange.ToString("F2");
 
@@ -61,10 +61,10 @@ public class TurretTowerShop : MonoBehaviour
             PlayerPrefs.SetInt(Dollar.DECIMAL, GUIManager.instance.Dollar);
 
             _turret._shootsPerSeconds += _upgradeDamage;
-            PlayerPrefs.SetFloat(PrefsLaser.LASER_DAMAGE, _turret._shootsPerSeconds);
+            PlayerPrefs.SetFloat(PrefsTurret.DAMAGE, _turret._shootsPerSeconds);
 
             _turret._targetingRange += _upgradeRange;
-            PlayerPrefs.SetFloat(PrefsLaser.LASER_RANGE, _turret._targetingRange);
+            PlayerPrefs.SetFloat(PrefsTurret.RANGE, _turret._targetingRange);
 
             Init();
         }

@@ -10,7 +10,8 @@ public class GameTileContent : MonoBehaviour
     public GameTileContentFactory OriginFactory { get; set; }
 
     public bool IsBlockingPath => Type == GameTileContentType.Wall || Type == GameTileContentType.Tower || 
-        Type == GameTileContentType.Laser || Type == GameTileContentType.Mortar || Type == GameTileContentType.Turret;
+        Type == GameTileContentType.Laser || Type == GameTileContentType.Mortar || Type == GameTileContentType.Turret
+        || Type == GameTileContentType.TurretTypeTwo || Type == GameTileContentType.ElectroMortar;
     public void Recycle()
     {
         OriginFactory.Reclaim(this);
@@ -20,22 +21,24 @@ public class GameTileContent : MonoBehaviour
 
     }
 }
-    public enum GameTileContentType
-    {
-        Empty,
-        Destination,
-        Wall,
-        SpawnPoint,
-        Tower, 
-        Laser,
-        Mortar,
-        Turret,
-    TurretTypeTwo
+public enum GameTileContentType
+{
+    Empty,
+    Destination,
+    Wall,
+    SpawnPoint,
+    Tower,
+    Laser,
+    Mortar,
+    Turret,
+    TurretTypeTwo,
+    ElectroMortar
 }
 public enum TowerType
 {
     Laser,
     Mortar,
     Turret,
-        TurretTypeTwo
+    TurretTypeTwo,
+    ElectroMortar
 }

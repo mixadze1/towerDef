@@ -11,6 +11,8 @@ public class Explosion : WarEntity
     [SerializeField] private Transform _particle;
     [SerializeField] private Transform _particleExplosion;
     [SerializeField] private Transform _particleExplosionTurret;
+    [SerializeField] private Transform _particleExplosionTurretTypeTwo;
+    [SerializeField] private Transform _particleExplosionElectroTower;
 
     private float _age;
     private static int _colorPropId = Shader.PropertyToID("_Color");
@@ -28,8 +30,11 @@ public class Explosion : WarEntity
             Mortar(position, blastRadius, damage);
         if (type == TowerType.Turret)
             Turret(position, blastRadius, damage);
-        
-        
+        if (type == TowerType.ElectroMortar)
+            ElectroMortar(position, blastRadius, damage);
+        if (type == TowerType.TurretTypeTwo)
+            TurretTypeTwo(position, blastRadius, damage);
+
     }
     public override bool GameUpdate()
     {
@@ -91,4 +96,44 @@ public class Explosion : WarEntity
         _scale = 2f * blastRadius;
 
     }
+    private void ElectroMortar(Vector3 position, float blastRadius, float damage)
+    {
+
+        if (blastRadius != 0.05f)
+        {
+            _particleExplosionTurretTypeTwo.gameObject.SetActive(true);
+        }
+
+        if (damage > 0)
+        {
+            TargetPoint.FillBuffer(position, blastRadius);
+            for (int i = 0; i < TargetPoint.BufferedCount; i++)
+            {
+                TargetPoint.GetBuffered(i).Enemy.TakeDamage(damage);
+            }
+        }
+        transform.localPosition = position;
+        _scale = 2f * blastRadius;
+
+    }
+    private void TurretTypeTwo(Vector3 position, float blastRadius, float damage)
+    {
+        if (blastRadius != 0.05f)
+        {
+            _particleExplosionTurret.gameObject.SetActive(true);
+        }
+
+        if (damage > 0)
+        {
+            TargetPoint.FillBuffer(position, blastRadius);
+            for (int i = 0; i < TargetPoint.BufferedCount; i++)
+            {
+                TargetPoint.GetBuffered(i).Enemy.TakeDamage(damage);
+            }
+        }
+        transform.localPosition = position;
+        _scale = 2f * blastRadius;
+
+    }
+
 }

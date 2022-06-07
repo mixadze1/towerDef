@@ -19,7 +19,8 @@ MonoBehaviour:
   _laserPrefab: {fileID: 8764418012029041106, guid: 1b0602c5465e4ba47a7ac20ec8387a6c, type: 3}
   _mortarPrefab: {fileID: 6611157296666839922, guid: 144ac8e3f5ff38a4d8b617fc142fb3f4, type: 3}
   _turretPrefab: {fileID: 6243582557652491311, guid: 416da93c1348ff9429d54a02d3ba3c0d, type: 3}
-  _turretTypeToPrefab: {fileID: 5243199437851393465, guid: 87da7df5f99ffd446888dffd81b7c02d, type: 3}
+  _turretTypeToPrefab: {fileID: 6674311530176272558, guid: 1997bd7b2d015ca4699dd00923564023, type: 3}
+  _electroMortar: {fileID: 611724962327115182, guid: 87da7df5f99ffd446888dffd81b7c02d, type: 3}
   _towerPrefabs:
   - {fileID: 8764418012029041106, guid: 1b0602c5465e4ba47a7ac20ec8387a6c, type: 3}
   - {fileID: 6611157296666839922, guid: 144ac8e3f5ff38a4d8b617fc142fb3f4, type: 3}

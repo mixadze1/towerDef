@@ -97,16 +97,19 @@
     <Compile Include="Assets\Scripts\VictoryLose.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDirectionTranslate.cs" />
     <Compile Include="Assets\Scripts\TargetPoint.cs" />
+    <Compile Include="Assets\Scripts\ElectoRocketTower.cs" />
     <Compile Include="Assets\Scripts\InterstialAds.cs" />
     <Compile Include="Assets\Scripts\RewardedAds.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\DirectionExtension.cs" />
+    <Compile Include="Assets\Scripts\RocketTower.cs" />
     <Compile Include="Assets\Scripts\Coin\Ads.cs" />
     <Compile Include="Assets\Scripts\GameTileContent.cs" />
     <Compile Include="Assets\Scripts\TurretTower.cs" />
     <Compile Include="Assets\_DLNK\_DLNK Source\Source Demos\Animations.cs" />
     <Compile Include="Assets\Scripts\Shop\MortarTowerShop.cs" />
     <Compile Include="Assets\Scripts\GameLoadingOperation.cs" />
+    <Compile Include="Assets\Scripts\SFXManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\LoginOperation.cs" />
@@ -140,6 +143,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_New.cs" />
     <Compile Include="Assets\AurynSky\Forest Pack\Scripts\ChestDemo.cs" />
     <Compile Include="Assets\Scripts\PrefsLaser.cs" />
+    <Compile Include="Assets\Scripts\AboutGame.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Scripts\Explosion.cs" />
@@ -148,6 +152,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\Scripts\LaserTower.cs" />
+    <Compile Include="Assets\Scripts\Shop\TurretTypeTwoTower.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\Scripts\GameScenario.cs" />
@@ -169,7 +174,8 @@
     <Compile Include="Assets\Scripts\WarFactory.cs" />
     <Compile Include="Assets\Scripts\LoginWindow.cs" />
     <Compile Include="Assets\Scripts\EnemyType.cs" />
-    <Compile Include="Assets\Scripts\AboutGame.cs" />
+    <Compile Include="Assets\Scripts\Shop\ElectroTowerShop.cs" />
+    <Compile Include="Assets\Scripts\Shop\TurretTypeTwoShop.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

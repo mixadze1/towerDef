@@ -30,25 +30,25 @@ public class LaserTowerShop : MonoBehaviour
 
     private void CalculateTower()
     {
-        if (PlayerPrefs.GetFloat(PrefsLaser.LASER_RANGE) > 3)
+        if (PlayerPrefs.GetFloat(PrefsLaser.RANGE) > 3)
         {
-            _laser._targetingRange = PlayerPrefs.GetFloat(PrefsLaser.LASER_RANGE);
+            _laser._targetingRange = PlayerPrefs.GetFloat(PrefsLaser.RANGE);
         }
 
-        if (PlayerPrefs.GetFloat(PrefsLaser.LASER_DAMAGE) > 10)
-            _laser._damagePerSecond = PlayerPrefs.GetFloat(PrefsLaser.LASER_DAMAGE);
+        if (PlayerPrefs.GetFloat(PrefsLaser.DAMAGE) > 10)
+            _laser._damagePerSecond = PlayerPrefs.GetFloat(PrefsLaser.DAMAGE);
     }
 
     private void CalculateText()
     {
-        if (PlayerPrefs.GetFloat(PrefsLaser.LASER_DAMAGE) > _laser._damagePerSecond)
-            _damageText.text = PlayerPrefs.GetFloat(PrefsLaser.LASER_DAMAGE).ToString("F2");
+        if (PlayerPrefs.GetFloat(PrefsLaser.DAMAGE) > _laser._damagePerSecond)
+            _damageText.text = PlayerPrefs.GetFloat(PrefsLaser.DAMAGE).ToString("F2");
         else
             _damageText.text = _laser._damagePerSecond.ToString("F2");
 
 
-        if (PlayerPrefs.GetFloat(PrefsLaser.LASER_RANGE) > _laser._targetingRange)
-            _rangeText.text = PlayerPrefs.GetFloat(PrefsLaser.LASER_RANGE).ToString("F2");
+        if (PlayerPrefs.GetFloat(PrefsLaser.RANGE) > _laser._targetingRange)
+            _rangeText.text = PlayerPrefs.GetFloat(PrefsLaser.RANGE).ToString("F2");
         else
             _rangeText.text = _laser._targetingRange.ToString("F2");
 
@@ -62,10 +62,10 @@ public class LaserTowerShop : MonoBehaviour
             GUIManager.instance.Dollar -= _shop.PriceUpgradeLaser;
             PlayerPrefs.SetInt(Dollar.DECIMAL, GUIManager.instance.Dollar);
             _laser._damagePerSecond += _upgradeDamage;
-            PlayerPrefs.SetFloat(PrefsLaser.LASER_DAMAGE, _laser._damagePerSecond);
+            PlayerPrefs.SetFloat(PrefsLaser.DAMAGE, _laser._damagePerSecond);
 
             _laser._targetingRange += _upgradeRange;
-            PlayerPrefs.SetFloat(PrefsLaser.LASER_RANGE, _laser._targetingRange);
+            PlayerPrefs.SetFloat(PrefsLaser.RANGE, _laser._targetingRange);
 
             Init();
         }

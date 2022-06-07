@@ -8,6 +8,8 @@ public class TilesBuilder : MonoBehaviour
     private List<BuildButton> _buttons;
     [SerializeField]
     private ContentPrice _contentPrice;
+    [SerializeField] private Transform _closeTurret;
+    [SerializeField] private Transform _buyTurret;
     private GameTileContentFactory _contentFactory;
     private Camera _camera;
     private GameBoard _gameBoard;
@@ -23,6 +25,8 @@ public class TilesBuilder : MonoBehaviour
     public int PriceWall;
     public int PriceLaser;
     public int PriceTurret;
+    public int PriceElectro;
+    public int PriceTurretTypeTwo;
 
     private void Awake()
     {
@@ -116,32 +120,40 @@ public class TilesBuilder : MonoBehaviour
         if (type == GameTileContentType.Turret && GUIManager.instance.Coin >= PriceTurret)
         {
             _correctPrice = PriceTurret;
-            _pendingTile = _contentFactory.Get(type);
+            _pendingTile = _contentFactory.Get(type); 
+            return;
         }
         if (type == GameTileContentType.Laser && GUIManager.instance.Coin >= PriceLaser)
         {
             _correctPrice = PriceLaser;
            _pendingTile = _contentFactory.Get(type);
+            return;
         }
-
-
         if (type == GameTileContentType.Mortar && GUIManager.instance.Coin >= PriceMortar)
         {
             _correctPrice = PriceMortar;
             _pendingTile = _contentFactory.Get(type);
+            return;
         }
 
         if (type == GameTileContentType.Wall && GUIManager.instance.Coin >= PriceWall)
         {
             _correctPrice = PriceWall;
-            _pendingTile = _contentFactory.Get(type);
+            _pendingTile = _contentFactory.Get(type); 
+            return;
         }
-        if (type == GameTileContentType.TurretTypeTwo && GUIManager.instance.Coin >= 100)
+        if (type == GameTileContentType.TurretTypeTwo && GUIManager.instance.Coin >= PriceTurretTypeTwo)
         {
-            _correctPrice = PriceWall;
+            _correctPrice = PriceTurretTypeTwo;
             _pendingTile = _contentFactory.Get(type);
+            return;
         }
-
+        if (type == GameTileContentType.ElectroMortar && GUIManager.instance.Coin >= PriceElectro)
+        {
+            _correctPrice = PriceElectro;
+            _pendingTile = _contentFactory.Get(type);
+            return;
+        }
         else
             return;
     }
