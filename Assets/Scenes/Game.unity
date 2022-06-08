@@ -5959,6 +5959,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4f1d084f7f37fc3489d4f412cca2adb5, type: 2}
   - {fileID: 11400000, guid: 2173079a42800a743ade6b2077400abd, type: 2}
   - {fileID: 11400000, guid: e5969db218d4caa468cf84d27955db33, type: 2}
+  - {fileID: 11400000, guid: e5969db218d4caa468cf84d27955db33, type: 2}
   _levelNumber: {fileID: 1706105172}
   _coin: 1000
 --- !u!1 &413821467

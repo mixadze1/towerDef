@@ -37,7 +37,7 @@ public class ElectroTowerShop : MonoBehaviour
 
     private void CalculateText()
     {
-        if (PlayerPrefs.GetFloat(PrefsMortar.DAMAGE) > 40)
+        if (PlayerPrefs.GetFloat(PrefsElectro.DAMAGE) > 62)
         {
             _damageText.text = PlayerPrefs.GetFloat(PrefsElectro.DAMAGE).ToString("F2");
             _rangeBlast.text = PlayerPrefs.GetFloat(PrefsElectro.RANGE).ToString("F2");
@@ -61,7 +61,7 @@ public class ElectroTowerShop : MonoBehaviour
 
     private void CalculateTower()
     {
-        if (_electro._damage < PlayerPrefs.GetFloat(PrefsMortar.DAMAGE))
+        if (PlayerPrefs.GetFloat(PrefsElectro.DAMAGE) > 62)
         {
             _electro._shootsPerSeconds = PlayerPrefs.GetFloat(PrefsElectro.SPEED);
             _electro._shellBlastRadius = PlayerPrefs.GetFloat(PrefsElectro.BLAST);

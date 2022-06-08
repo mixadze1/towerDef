@@ -33,7 +33,7 @@ public class TurretTowerShop : MonoBehaviour
         if (PlayerPrefs.GetFloat(PrefsTurret.DAMAGE) > 3)
         {
             _turret._targetingRange = PlayerPrefs.GetFloat(PrefsTurret.RANGE);
-            _turret._shootsPerSeconds = PlayerPrefs.GetFloat(PrefsTurret.DAMAGE);
+            _turret._damage = PlayerPrefs.GetFloat(PrefsTurret.DAMAGE);
         }
     }
 
@@ -47,7 +47,7 @@ public class TurretTowerShop : MonoBehaviour
            
         else
         {
-            _damageText.text = _turret._shootsPerSeconds.ToString("F2");
+            _damageText.text = _turret._damage.ToString("F2");
             _rangeText.text = _turret._targetingRange.ToString("F2");
         }
             
@@ -62,8 +62,8 @@ public class TurretTowerShop : MonoBehaviour
             GUIManager.instance.Dollar -= _shop.PriceUpgradeTurret;
             PlayerPrefs.SetInt(Dollar.DECIMAL, GUIManager.instance.Dollar);
 
-            _turret._shootsPerSeconds += _upgradeDamage;
-            PlayerPrefs.SetFloat(PrefsTurret.DAMAGE, _turret._shootsPerSeconds);
+            _turret._damage += _upgradeDamage;
+            PlayerPrefs.SetFloat(PrefsTurret.DAMAGE, _turret._damage);
 
             _turret._targetingRange += _upgradeRange;
             PlayerPrefs.SetFloat(PrefsTurret.RANGE, _turret._targetingRange);
