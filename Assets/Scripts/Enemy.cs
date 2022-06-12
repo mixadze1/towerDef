@@ -69,6 +69,7 @@ public class Enemy : GameBehavior
             if (Damage >= 10)
                 GUIManager.instance.Coin += 20;
             Recycle();
+            CountZombie._instance.IsDieZombie();
             return false;
         }
       
