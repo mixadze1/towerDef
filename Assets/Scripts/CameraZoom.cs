@@ -1,43 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+[RequireComponent(typeof(CinemachineFreeLook))]
 public class CameraZoom : MonoBehaviour
 {
-    [SerializeField] private Transform _model;
-    [SerializeField] CinemachineVirtualCamera virtualCamera;
-    CinemachineComponentBase componentBase;
-    float cameraDistance;
-    [SerializeField] float sensitivity = 10f;
+    [SerializeField] private float lookSpeed = 1;
+    private CinemachineFreeLook _cinemachine;
+    private Player _playerInput;
+    private void Awake()
+    {
+        _playerInput = new Player();
+        _cinemachine = GetComponent<CinemachineFreeLook>();
+    }
+    private void OnEnable()
+    {
+        _playerInput.Enable();
+    }
+    private void OnDisable()
+    {
+        _playerInput.Disable();
+    }
     private void Update()
     {
-        
-
-        if(componentBase == null)
-        {
-            componentBase = virtualCamera.GetCinemachineComponent(CinemachineCore.Stage.Body);
-        }
-        if(Input.GetMouseButton(1) && (componentBase as CinemachineFramingTransposer).m_CameraDistance != 0 && Input.GetMouseButton(0) != true)
-        {
-            Debug.Log("Zdec");
-            cameraDistance =  sensitivity;
-            if (componentBase is CinemachineFramingTransposer)
-            {
-                (componentBase as CinemachineFramingTransposer).m_CameraDistance -= cameraDistance;
-
-            }
-        }
-        if (Input.GetMouseButton(0) && Input.GetMouseButton(1))
-            {
-            Debug.Log("Zdec");
-            cameraDistance = sensitivity;
-            if (componentBase is CinemachineFramingTransposer)
-            {
-                (componentBase as CinemachineFramingTransposer).m_CameraDistance += cameraDistance;
-
-            }
-        }
+        Vector2 delta = _playerInput.Game.LookAround.ReadValue<Vector2>();
+        _cinemachine.m_XAxis.Value += delta.x * 10f *  lookSpeed * Time.deltaTime;
+        _cinemachine.m_YAxis.Value += delta.y * 0.1f * lookSpeed * Time.deltaTime;
     }
+
 
 }
