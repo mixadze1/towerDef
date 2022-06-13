@@ -24,8 +24,7 @@ public class GameBoard : MonoBehaviour
     public void Initialize(Vector2Int size, GameTileContentFactory contentFactory)
     {
         _size = size;
-        _ground.localPosition = new Vector3(0, -1, 0);
-        _ground.localScale = new Vector3(size.x * 1.5f, size.y * 1.5f, 1f);
+
 
         Vector2 offset = new Vector2((size.x - 1) * 0.5f, (size.y - 1) * 0.5f);
 
