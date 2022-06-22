@@ -7,7 +7,7 @@ using UnityEngine;
 public class AppStartup  : MonoBehaviour
 {
 
-    private void Start()
+   /* private void Start()
     {
 
         var appInfoContainer = new AppInfoContainer();
@@ -17,5 +17,5 @@ public class AppStartup  : MonoBehaviour
         loadingOperations.Enqueue(new MenuLoadingOperation());
 
         LoadingScreen.Instance.Load(loadingOperations);
-    }
+    }*/
 }

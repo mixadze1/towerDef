@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 namespace Loading
 {
-    public class ConfigOperation : ILoadingOperation
+   /* public class ConfigOperation : ILoadingOperation
     {
         public string Description => "Configuration loading...";
 
@@ -26,5 +26,5 @@ namespace Loading
             }
             onProgress?.Invoke(1f);
         }
-    }
+    }*/
 }
